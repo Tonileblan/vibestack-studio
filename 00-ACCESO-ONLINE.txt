@@ -1,0 +1,23 @@
+========================================================
+🚀 VIBESTACK STUDIO - SUITE ONLINE DE GUÍAS Y HERRAMIENTAS
+========================================================
+
+Para abrir la suite completa y navegar por todas las guías
+con buscador, temas claros, prompts y herramientas interactivas,
+abre el siguiente enlace en tu navegador:
+
+👉 https://vibestack-studio.vercel.app
+
+========================================================
+¿Por qué usar el enlace web en vez de abrir archivos en Drive?
+========================================================
+Google Drive bloquea la ejecución de scripts y hojas de estilo 
+en archivos HTML locales por motivos de seguridad.
+
+Al acceder a través de https://vibestack-studio.vercel.app
+tienes la suite disponible 24/7 con soporte completo para:
+- Búsqueda en tiempo real
+- Copia de prompts en 1 clic
+- Lectura en Modo Claro limpio y descansado
+- Navegación inmediata entre las 28 guías
+- Repositorio GitHub: https://github.com/Tonileblan/vibestack-studio
