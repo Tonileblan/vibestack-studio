@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YFinance: Guía Maestra de Datos Financieros • VibeStack Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-shadow {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+<div class="max-w-5xl mx-auto space-y-6">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+        <span>⚡</span> Finanzas con Python
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+        YFinance: Guía Maestra de Datos Financieros
+      </h1>
+      <p class="text-slate-600 text-sm md:text-base mt-1.5 max-w-2xl leading-relaxed">
+        Manual completo para extraer datos históricos, balances, múltiplos y noticias financieras con Python y yfinance.
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+      <a href="index.html" class="px-4 py-2.5 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
+        <span>←</span> Volver al Hub
+      </a>
+      <a href="YFinance-Guia-Maestra-Datos-Financieros.md" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition flex items-center gap-2"><span>📄</span> Markdown</a>
+      
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="space-y-6">
+    <div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Origen:</strong> <a href="https://github.com/ranaroussi/yfinance" class="text-blue-600 hover:text-blue-800 font-semibold underline">GitHub ranaroussi/yfinance</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Documentación Oficial Web:</strong> <a href="https://ranaroussi.github.io/yfinance/" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://ranaroussi.github.io/yfinance/</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Comunidad:</strong> 15,000+ Stars en GitHub ⭐ | 100M+ Descargas anuales en PyPI  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Licencia:</strong> Apache 2.0 (Open Source)  </div><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 1. Instalación y Setup
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>BASH</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_1')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_1"># Instalación estándar
+pip install yfinance pandas requests-cache
+
+# Para dashboards y visualización completa
+pip install yfinance plotly matplotlib streamlit</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 2. Descarga de Precios Históricos
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>PYTHON</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_2')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_2">import yfinance as yf
+
+# 1. Ticker Individual (ej: Apple)
+apple = yf.Ticker("AAPL")
+hist = apple.history(period="1y", interval="1d")
+print(hist[['Open', 'High', 'Low', 'Close', 'Volume']].tail())
+
+# 2. Descarga Masiva de Múltiples Activos
+tickers = ["AAPL", "NVDA", "MSFT", "BTC-USD", "ETH-USD"]
+data = yf.download(tickers, start="2024-01-01", group_by='ticker')
+print(data['NVDA']['Close'].tail())</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 3. Parámetros de Periodos e Intervalos
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="overflow-x-auto rounded-xl border border-slate-200 my-4"><table class="w-full text-left text-xs md:text-sm text-slate-700"><thead class="bg-slate-50 text-xs text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200"><tr><th class="p-3">Parámetro</th><th class="p-3">Valores</th><th class="p-3">Descripción</th></tr></thead><tbody class="divide-y divide-slate-100"><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">period</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max</code></td><td class="p-3">Rango total de tiempo solicitado.</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">interval</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1m, 2m, 5m, 15m, 30m, 60m, 90m, 1h, 1d, 5d, 1wk, 1mo, 3mo</code></td><td class="p-3">Granularidad temporal de las velas.</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">auto_adjust</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">True / False</code></td><td class="p-3">Ajuste automático de precios por splits y dividendos.</td></tr></tbody></table></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 4. Análisis Fundamental y Estados Financieros
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>PYTHON</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_3')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_3">import yfinance as yf
+
+nvda = yf.Ticker("NVDA")
+
+# Ratios y Metadatos
+info = nvda.info
+print(f"Market Cap: ${info.get('marketCap'):,}")
+print(f"Trailing P/E: {info.get('trailingPE')} | Forward P/E: {info.get('forwardPE')}")
+
+# Estados Financieros
+financials = nvda.financials          # Cuenta de resultados
+balance = nvda.balance_sheet          # Balance general
+cashflow = nvda.cashflow              # Flujo de caja</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 5. Dividendos, Splits y Opciones
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>PYTHON</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_4')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_4">import yfinance as yf
+
+msft = yf.Ticker("MSFT")
+
+# Dividendos y Splits
+print(msft.dividends.tail())
+print(msft.splits)
+
+# Cadena de Opciones
+exp_date = msft.options[0]
+chain = msft.option_chain(exp_date)
+calls = chain.calls[['strike', 'lastPrice', 'volume', 'impliedVolatility']]
+print(calls.head())</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 6. Screener del Mercado y Búsqueda de Noticias
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>PYTHON</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_5')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_5">import yfinance as yf
+
+# Noticias por palabra clave
+search = yf.Search("artificial intelligence", news_count=5)
+for n in search.news:
+    print(f"📰 {n['title']} ({n['publisher']})")
+
+# Screener de mayores subidas del día
+screener = yf.Screener()
+screener.set_predefined_body('day_gainers')
+print("Gainers:", len(screener.response.get('quotes', [])))</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📚 Enlaces de Referencia
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">GitHub:</strong> <a href="https://github.com/ranaroussi/yfinance" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://github.com/ranaroussi/yfinance</a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Documentación Oficial:</strong> <a href="https://ranaroussi.github.io/yfinance/" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://ranaroussi.github.io/yfinance/</a></div></div></div></section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pt-6 border-t border-slate-200 text-center text-slate-500 text-xs space-y-1">
+    <p><strong>VibeStack Studio</strong> • Ecosistema Vibe Coding & IA • Toni Leblan & Antigravity IDE</p>
+    <p class="font-mono text-slate-400">Sincronizado: /Users/toni/Proyectos/Vibe-Coding/</p>
+  </footer>
+
+</div>
+
+<script>
+  function copyCode(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const btn = event.target;
+      const orig = btn.innerText;
+      btn.innerText = "¡Copiado!";
+      btn.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      setTimeout(() => {
+        btn.innerText = orig;
+        btn.classList.remove("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

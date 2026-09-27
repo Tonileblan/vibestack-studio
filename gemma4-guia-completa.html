@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemma 4: IA Local para tus Agentes • VibeStack Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-shadow {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+<div class="max-w-5xl mx-auto space-y-6">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+        <span>⚡</span> Taller Skool • Clase 05
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+        Gemma 4: IA Local para tus Agentes
+      </h1>
+      <p class="text-slate-600 text-sm md:text-base mt-1.5 max-w-2xl leading-relaxed">
+        Guía para correr modelos abiertos con Ollama y conectarlos a pipelines de agentes autónomos sin costo por token.
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+      <a href="index.html" class="px-4 py-2.5 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
+        <span>←</span> Volver al Hub
+      </a>
+      <a href="Gemma4-IA-Local-Para-Tus-Agentes.md" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition flex items-center gap-2"><span>📄</span> Markdown</a>
+      
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="space-y-6">
+    <div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Comunidad:</strong> Vibe Coding (Skool - IA Masters Automations)  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Archivos del Proyecto:</strong> <a href="./gemma4-guia-completa.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">gemma4-guia-completa.html</code></a> | <a href="./claude-obsidian-segundo-cerebro.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">claude-obsidian-segundo-cerebro.html</code></a></div><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🎯 Objetivo de la Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Aprender a ejecutar y orquestar modelos de inteligencia artificial en local mediante <strong class="font-bold text-slate-900">GEMMA 4 y Ollama</strong>, seleccionando la versión óptima según la memoria RAM de tu equipo e integrándola directamente en sistemas agénticos como <strong class="font-bold text-slate-900">Antigravity, OpenCode y Claude Code (vía MCP)</strong>.</p><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Esta arquitectura permite <strong class="font-bold text-slate-900">ahorrar miles de tokens</strong> en APIs premium (Claude Sonnet, GPT-4, Gemini Pro), trabajar <strong class="font-bold text-slate-900">100% offline</strong> y garantizar la <strong class="font-bold text-slate-900">privacidad total</strong> de datos sensibles.</p></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🚀 Qué te Llevas de esta Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1</span><div><strong class="font-bold text-slate-900">Comprensión de GEMMA 4:</strong> Por qué los modelos pequeños de nueva generación compiten con arquitecturas mucho más pesadas gracias a su eficiencia de entrenamiento y arquitectura.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">2</span><div><strong class="font-bold text-slate-900">Dimensionamiento por RAM:</strong> Guía clara para elegir qué modelo descargar según tu hardware.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">3</span><div><strong class="font-bold text-slate-900">Instalación Rápida con Ollama:</strong> Configuración de modelos locales desde interfaz gráfica y terminal.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">4</span><div><strong class="font-bold text-slate-900">Integración Agéntica:</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Antigravity & OpenCode:</strong> Configuración del proveedor Ollama local para ejecutar prompts y scripts.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Claude Code:</strong> Conexión mediante <strong class="font-bold text-slate-900">MCP local de Ollama</strong> para delegación de subtareas.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">5</span><div><strong class="font-bold text-slate-900">Estrategia Híbrida de Ahorro de Tokens:</strong> Delegar tareas mecánicas (clasificación, extracción de entidades, formateo JSON, redacción básica) al modelo local mientras reservas modelos frontera para razonamiento complejo y arquitectura.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">6</span><div><strong class="font-bold text-slate-900">Evaluación de Rendimiento en VPS vs Local:</strong> Por qué la ejecución en tu propia máquina suele ser más rentable y rápida que en VPS modestos.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📊 Tabla de Dimensionamiento de Hardware (RAM)
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="overflow-x-auto rounded-xl border border-slate-200 my-4"><table class="w-full text-left text-xs md:text-sm text-slate-700"><thead class="bg-slate-50 text-xs text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200"><tr><th class="p-3">Modelo GEMMA</th><th class="p-3">RAM Mínima Recomendada</th><th class="p-3">Caso de Uso Ideal</th><th class="p-3">Velocidad Relativa</th></tr></thead><tbody class="divide-y divide-slate-100"><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">Gemma 2B / 4B</strong></td><td class="p-3">8 GB - 16 GB</td><td class="p-3">Clasificación, extracción de datos, linter, resúmenes rápidos y redacción corta. *(Recomendado para la mayoría)*</td><td class="p-3">⚡⚡⚡ Ultrarrápido</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">Gemma 9B</strong></td><td class="p-3">16 GB - 24 GB</td><td class="p-3">Generación de código intermedio, razonamiento estructurado, agentes conversacionales.</td><td class="p-3">⚡⚡ Rápido</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">Gemma 27B</strong></td><td class="p-3">32 GB - 64 GB+</td><td class="p-3">Razonamiento avanzado, refactorización profunda, traducción técnica de alta fidelidad.</td><td class="p-3">⚡ Moderado</td></tr></tbody></table></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> ⚙️ Flujo de Integración en Antigravity & OpenCode
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>MERMAID</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_1')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_1">graph TD
+    A[💻 Tu Equipo Local] --&gt; B[1. Instalar y Abrir Ollama]
+    B --&gt;|Descargar Modelo: ollama run gemma2:2b / 9b| C[Servicio Local Activo en localhost:11434]
+    C --&gt; D[2. Abrir Terminal en Antigravity]
+    D --&gt; E[3. Lanzar OpenCode: opencode]
+    E --&gt; F[4. Seleccionar Proveedor: Ollama Local]
+    F --&gt; G[5. Elegir Modelo: Gemma 4 / Local]
+    G --&gt; H[🚀 Agente Ejecutando en Local: 0 Coste de Tokens + Offline]
+    H --&gt;|Tareas Complejas| I[Delegación a Claude / Gemini cuando se requiera]</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🔄 Estrategia Híbrida: Ahorro Inteligente de Tokens
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>CÓDIGO</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_2')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_2">[📥 Entrada de Tareas del Proyecto]
+          │
+          ├───► ¿Es tarea simple / mecánica? (Formateo, Extracción, Resumen)
+          │         └───► 🤖 GEMMA 4 Local (0€ / Ilimitado / Privado)
+          │
+          └───► ¿Es arquitectura / refactorización compleja?
+                    └───► 🧠 Claude 3.7 Sonnet / Gemini 2.0 Flash (API)</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧠 Ideas y Principios Clave
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">No mates moscas a cañonazos:</strong> El 60-70% de las tareas de un pipeline automatizado son transformaciones simples que un modelo 4B resuelve de forma impecable sin gastar saldo de API.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Privacidad Absoluta:</strong> Ideal para procesar contratos, bases de datos de clientes o información confidencial que no debe salir de la red local.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Carga Inicial:</strong> La primera inferencia requiere unos segundos adicionales mientras los pesos se cargan en la VRAM/RAM unificada.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📂 Recursos Disponibles
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🌐 Guía Completa Interactiva de Gemma 4:</strong> <a href="./gemma4-guia-completa.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">gemma4-guia-completa.html</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🧠 Guía del Segundo Cerebro Local:</strong> <a href="./Claude-Obsidian-Segundo-Cerebro-Guia.md" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Claude-Obsidian-Segundo-Cerebro-Guia.md</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">📦 Web Oficial Ollama:</strong> <a href="https://ollama.com/" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://ollama.com/</a></div></div></div></section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pt-6 border-t border-slate-200 text-center text-slate-500 text-xs space-y-1">
+    <p><strong>VibeStack Studio</strong> • Ecosistema Vibe Coding & IA • Toni Leblan & Antigravity IDE</p>
+    <p class="font-mono text-slate-400">Sincronizado: /Users/toni/Proyectos/Vibe-Coding/</p>
+  </footer>
+
+</div>
+
+<script>
+  function copyCode(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const btn = event.target;
+      const orig = btn.innerText;
+      btn.innerText = "¡Copiado!";
+      btn.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      setTimeout(() => {
+        btn.innerText = orig;
+        btn.classList.remove("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

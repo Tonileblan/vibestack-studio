@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forja Reel Editor: Edición Programática con Remotion • VibeStack Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-shadow {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+<div class="max-w-5xl mx-auto space-y-6">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+        <span>⚡</span> Taller Skool • Clase 03 (Parte B)
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+        Forja Reel Editor: Edición Programática con Remotion
+      </h1>
+      <p class="text-slate-600 text-sm md:text-base mt-1.5 max-w-2xl leading-relaxed">
+        Entorno de producción de vídeo con React y Remotion para subtítulos y transiciones dinámicas a 60fps.
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+      <a href="index.html" class="px-4 py-2.5 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
+        <span>←</span> Volver al Hub
+      </a>
+      <a href="Forja-Reel-Editor-Videos-IA.md" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition flex items-center gap-2"><span>📄</span> Markdown</a>
+      
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="space-y-6">
+    <div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Fecha de la Clase:</strong> 30 Junio 2026  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Comunidad:</strong> Vibe Coding (Skool - IA Masters Automations)  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Grabación en Skool:</strong> <a href="https://www.skool.com/ia-masters-automations/classroom/b5848fd4?md=c7e93f2569704765a55647f015994ea8" class="text-blue-600 hover:text-blue-800 font-semibold underline">Monta tu Editor de Videos con IA</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Archivos del Proyecto:</strong> <a href="./forja-reel.skill" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel.skill</code></a> | <a href="./forja-reel-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel-explicacion.html</code></a> | <a href="./reel-edita-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">reel-edita-explicacion.html</code></a></div><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🎯 Objetivo de la Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Explicar y estructurar por dentro <strong class="font-bold text-slate-900">Forja Reel</strong>: el sistema automatizado con el que, a partir de una grabación en bruto del tirón (con silencios, tomas falsas, repeticiones y errores), <strong class="font-bold text-slate-900">Claude Code y Antigravity</strong> producen un <strong class="font-bold text-slate-900">reel profesional</strong> —con corte fino, motion graphics, B-roll real, subtítulos dinámicos y SFX— sin necesidad de abrir un editor manual como Premiere o CapCut.</p><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Al finalizar la sesión, se entrega la <strong class="font-bold text-slate-900">meta-skill (<code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">/forja-reel</code>)</strong> que te hace una entrevista en 8 bloques para construir <strong class="font-bold text-slate-900">tu propio editor personalizado</strong> con tu branding, ritmo y estilo.</p></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🚀 Qué te Llevas de esta Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1</span><div><strong class="font-bold text-slate-900">El Motor Completo de Edición en 5 Fases:</strong> Flujo algorítmico y compuertas de calidad automáticas para garantizar que el resultado no parezca generado por IA.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">2</span><div><strong class="font-bold text-slate-900">Meta-Skill para Crear tu Propio Editor:</strong> Entrevista de 8 bloques sobre tus colores de marca, encuadre en pantalla, ritmo de cortes, estilo de B-roll, subtitulado y *cold open*.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">3</span><div><strong class="font-bold text-slate-900">El Stack Técnico Exacto:</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Obligatorio:</strong> <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">FFmpeg</code>, <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Remotion</code>, <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Hyperframes</code>.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Opcional / Aceleradores:</strong> <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Groq</code> (transcripción Whisper ultrarrápida), <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">fal</code> (generación visual), <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Firecrawl MCP</code> (captura de B-roll real de webs) y la skill <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">/watch</code>.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧩 Las 5 Fases del Motor de Edición
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>MERMAID</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_1')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_1">graph TD
+    A[📹 Video en Bruto: Tomas Falsas + Silencios] --&gt;|1. Análisis de Energía de Audio| B[Fase 1: Corte Determinista y Última Toma Buena]
+    B --&gt;|Compuerta de Verificación| C[Fase 2: /watch Analiza Fotogramas y Receta]
+    C --&gt;|Planificación de Montaje| D[Fase 3: Motion Graphics + B-Roll Real con Firecrawl]
+    D --&gt;|Incrustación de SFX| E[Fase 4: Render Remotion + Control de Huecos]
+    E --&gt; F[Fase 5: Revisor Subagente Independiente]
+    F --&gt;|¿Veredicto? FAIL: Corrige y regenera| D
+    F --&gt;|PASS: Aprobado| G[🎬 Reel Final Publicable]</code></pre>
+        </div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">1. Corte Determinista</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Analiza el audio por energía de decibelios para recortar silencios, titubeos y repeticiones, seleccionando siempre la <strong class="font-bold text-slate-900">última toma válida</strong>. Una compuerta algorítmica valida que no existan cortes abruptos de palabras.</p><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">2. Lectura y Propuesta de Tratamiento (`/watch`)</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Mediante la skill <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">/watch</code>, el agente inspecciona el video fotograma a fotograma para determinar el tono y la "receta" visual ideal (un anuncio comercial no se edita igual que una noticia técnica).</p><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">3. Motion Graphics y B-Roll Real</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Genera gráficos y animaciones usando <strong class="font-bold text-slate-900">Hyperframes</strong>. En lugar de recursos genéricos de stock, utiliza <strong class="font-bold text-slate-900">Firecrawl MCP</strong> para extraer capturas en vivo de webs, repositorios de GitHub o noticias reales.</p><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">4. SFX, Render y Control de Calidad</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Añade efectos de sonido tácticos (pops, whooshes, risers), renderiza la composición mediante <strong class="font-bold text-slate-900">Remotion CLI</strong> y ejecuta un análisis de colisiones para evitar solapamientos.</p><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">5. Revisor Subagente Independiente (Loop PASS/FAIL)</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Un subagente desacoplado inspecciona el video terminado con <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">/watch</code>. Si detecta fallos de ritmo, textos cortados o desincronización, devuelve <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">FAIL</code> con instrucciones precisas para que el agente principal lo corrija antes de dar el <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">PASS</code> definitivo.</p></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧠 Ideas y Principios Clave
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Especificación Primero, Código Después:</strong> Se planifica la estructura y el ritmo antes de ensamblar el render (metodología *Spec Kit*).</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Regla de los 4 Segundos:</strong> Ningún plano debe superar los 4 segundos sin un cambio visual, zoom o elemento gráfico que reactive la atención.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">B-Roll Real > B-Roll de Stock:</strong> Capturar la web o el código real aporta 10x más autoridad y autenticidad.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Adiós a los Clichés de IA:</strong> Elimina fórmulas gastadas como *"¿Alguna vez te has preguntado...?"*, subtítulos de emojis flotantes excesivos y tipografías predecibles.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Eficiencia Total:</strong> Grabarse en 15 minutos y tener el reel terminado en otros 15 minutos.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📂 Recursos de la Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🌐 Presentación Interactiva Forja Reel:</strong> <a href="./forja-reel-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel-explicacion.html</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🌐 Guía del Editor de Video:</strong> <a href="./reel-edita-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">reel-edita-explicacion.html</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">📦 Meta-Skill Forja Reel:</strong> <a href="./forja-reel.skill" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel.skill</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🎥 Grabación en Skool:</strong> <a href="https://www.skool.com/ia-masters-automations/classroom/b5848fd4?md=c7e93f2569704765a55647f015994ea8" class="text-blue-600 hover:text-blue-800 font-semibold underline">Ver Clase en Skool</a></div></div></div></section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pt-6 border-t border-slate-200 text-center text-slate-500 text-xs space-y-1">
+    <p><strong>VibeStack Studio</strong> • Ecosistema Vibe Coding & IA • Toni Leblan & Antigravity IDE</p>
+    <p class="font-mono text-slate-400">Sincronizado: /Users/toni/Proyectos/Vibe-Coding/</p>
+  </footer>
+
+</div>
+
+<script>
+  function copyCode(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const btn = event.target;
+      const orig = btn.innerText;
+      btn.innerText = "¡Copiado!";
+      btn.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      setTimeout(() => {
+        btn.innerText = orig;
+        btn.classList.remove("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

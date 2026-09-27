@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Oficial de Skills de Anthropic • VibeStack Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-shadow {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+<div class="max-w-5xl mx-auto space-y-6">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+        <span>⚡</span> Herramientas MCP
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+        Catálogo Oficial de Skills de Anthropic
+      </h1>
+      <p class="text-slate-600 text-sm md:text-base mt-1.5 max-w-2xl leading-relaxed">
+        Guía completa de las 19 habilidades oficiales de Anthropic para Claude con especificación de herramientas MCP.
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+      <a href="index.html" class="px-4 py-2.5 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
+        <span>←</span> Volver al Hub
+      </a>
+      <a href="Anthropic-Official-Skills-Catalogo.md" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition flex items-center gap-2"><span>📄</span> Markdown</a>
+      
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="space-y-6">
+    <div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Origen:</strong> <a href="https://github.com/anthropics/skills" class="text-blue-600 hover:text-blue-800 font-semibold underline">GitHub anthropics/skills</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Explorador VS Code Web:</strong> <a href="https://vscode.dev/github/anthropics/skills/tree/main/skills?vscode-lang=es-es" class="text-blue-600 hover:text-blue-800 font-semibold underline">vscode.dev/github/anthropics/skills/tree/main/skills</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Total de Skills Oficiales:</strong> 19  </div><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📦 Cómo Instalar las Skills Oficiales de Anthropic
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>BASH</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_1')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_1"># Instalar todo el repositorio oficial de Anthropic
+npx -y skills add anthropics/skills -g -y
+
+# O instalar una habilidad específica (ej: mcp-builder, docx, xlsx, frontend-design)
+npx -y skills add anthropics/skills/mcp-builder -g -y
+npx -y skills add anthropics/skills/docx -g -y
+npx -y skills add anthropics/skills/xlsx -g -y
+npx -y skills add anthropics/skills/webapp-testing -g -y</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🌟 Directorio de las 19 Skills Oficiales
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">🏷️ 🎨 Diseño Visual, Arte & UI/UX (6)</h3><div class="overflow-x-auto rounded-xl border border-slate-200 my-4"><table class="w-full text-left text-xs md:text-sm text-slate-700"><thead class="bg-slate-50 text-xs text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200"><tr><th class="p-3">Skill</th><th class="p-3">Carpeta</th><th class="p-3">Comando de Instalación</th><th class="p-3">Descripción</th></tr></thead><tbody class="divide-y divide-slate-100"><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">algorithmic-art</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/algorithmic-art</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/algorithmic-art -g -y</code></td><td class="p-3">Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request cre...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">brand-guidelines</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/brand-guidelines</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/brand-guidelines -g -y</code></td><td class="p-3">Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">canvas-design</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/canvas-design</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/canvas-design -g -y</code></td><td class="p-3">Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to cr...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">frontend-design</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/frontend-design</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/frontend-design -g -y</code></td><td class="p-3">Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direct...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">slack-gif-creator</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/slack-gif-creator</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/slack-gif-creator -g -y</code></td><td class="p-3">Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation conc...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">theme-factory</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/theme-factory</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/theme-factory -g -y</code></td><td class="p-3">Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10...</td></tr></tbody></table></div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">🏷️ ⚡ Ingeniería, MCPs & Web Apps (5)</h3><div class="overflow-x-auto rounded-xl border border-slate-200 my-4"><table class="w-full text-left text-xs md:text-sm text-slate-700"><thead class="bg-slate-50 text-xs text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200"><tr><th class="p-3">Skill</th><th class="p-3">Carpeta</th><th class="p-3">Comando de Instalación</th><th class="p-3">Descripción</th></tr></thead><tbody class="divide-y divide-slate-100"><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">claude-api</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/claude-api</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/claude-api -g -y</code></td><td class="p-3"></td><td class="p-3">-...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">mcp-builder</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/mcp-builder</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/mcp-builder -g -y</code></td><td class="p-3">Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through w...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">skill-creator</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/skill-creator</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/skill-creator -g -y</code></td><td class="p-3">Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from s...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">web-artifacts-builder</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/web-artifacts-builder</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/web-artifacts-builder -g -y</code></td><td class="p-3">Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tai...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">webapp-testing</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/webapp-testing</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/webapp-testing -g -y</code></td><td class="p-3">Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debug...</td></tr></tbody></table></div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">🏷️ 📄 Documentos, Office & Reportes (8)</h3><div class="overflow-x-auto rounded-xl border border-slate-200 my-4"><table class="w-full text-left text-xs md:text-sm text-slate-700"><thead class="bg-slate-50 text-xs text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200"><tr><th class="p-3">Skill</th><th class="p-3">Carpeta</th><th class="p-3">Comando de Instalación</th><th class="p-3">Descripción</th></tr></thead><tbody class="divide-y divide-slate-100"><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">academy-guide</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/academy-guide</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/academy-guide -g -y</code></td><td class="p-3">>...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">discernment-nudge</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/discernment-nudge</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/discernment-nudge -g -y</code></td><td class="p-3">>...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">doc-coauthoring</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/doc-coauthoring</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/doc-coauthoring -g -y</code></td><td class="p-3">Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, t...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">docx</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/docx</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/docx -g -y</code></td><td class="p-3">Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx ...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">internal-comms</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/internal-comms</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/internal-comms -g -y</code></td><td class="p-3">A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude s...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">pdf</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/pdf</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/pdf -g -y</code></td><td class="p-3">Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, c...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">pptx</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/pptx</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/pptx -g -y</code></td><td class="p-3">Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. This includes: creating slide de...</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">xlsx</strong></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">skills/xlsx</code></td><td class="p-3"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">npx -y skills add anthropics/skills/xlsx -g -y</code></td><td class="p-3">Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read...</td></tr></tbody></table></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📚 Enlaces de Referencia
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">GitHub:</strong> <a href="https://github.com/anthropics/skills" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://github.com/anthropics/skills</a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">VS Code Web:</strong> <a href="https://vscode.dev/github/anthropics/skills/tree/main/skills" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://vscode.dev/github/anthropics/skills/tree/main/skills</a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Estándar Abierto:</strong> <a href="http://agentskills.io" class="text-blue-600 hover:text-blue-800 font-semibold underline">http://agentskills.io</a></div></div></div></section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pt-6 border-t border-slate-200 text-center text-slate-500 text-xs space-y-1">
+    <p><strong>VibeStack Studio</strong> • Ecosistema Vibe Coding & IA • Toni Leblan & Antigravity IDE</p>
+    <p class="font-mono text-slate-400">Sincronizado: /Users/toni/Proyectos/Vibe-Coding/</p>
+  </footer>
+
+</div>
+
+<script>
+  function copyCode(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const btn = event.target;
+      const orig = btn.innerText;
+      btn.innerText = "¡Copiado!";
+      btn.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      setTimeout(() => {
+        btn.innerText = orig;
+        btn.classList.remove("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

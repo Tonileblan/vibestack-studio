@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenCode Swarm de Agentes Autónomos • VibeStack Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-shadow {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+<div class="max-w-5xl mx-auto space-y-6">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+        <span>⚡</span> Taller Skool • Clase 06
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+        OpenCode Swarm de Agentes Autónomos
+      </h1>
+      <p class="text-slate-600 text-sm md:text-base mt-1.5 max-w-2xl leading-relaxed">
+        Orquestación de enjambres de agentes de desarrollo en consola que resuelven tareas complejas en paralelo.
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+      <a href="index.html" class="px-4 py-2.5 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
+        <span>←</span> Volver al Hub
+      </a>
+      <a href="OpenCode-Swarm-Avanzado-Guia-Completa.md" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition flex items-center gap-2"><span>📄</span> Markdown</a>
+      
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="space-y-6">
+    <div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Comunidad:</strong> Vibe Coding (Skool - IA Masters Automations)  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Documentación Oficial:</strong> <a href="https://www.notion.so/oh-my-openagent-omo-Gu-a-para-la-Comunidad-3262cd2e5d1581ea8becd77ce7e33064" class="text-blue-600 hover:text-blue-800 font-semibold underline">Guía para la Comunidad en Notion</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Repositorio Swarm Secuencial:</strong> <a href="https://github.com/zaxbysauce/opencode-swarm" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://github.com/zaxbysauce/opencode-swarm</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Archivos Locales:</strong> <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Swarm secuencial.textClipping</code> | <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Documentacion Swarm.textClipping</code></div><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🎯 Objetivo de la Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Aprender a orquestar y construir proyectos de software completos de principio a fin utilizando <strong class="font-bold text-slate-900">OpenCode Swarm con <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">oh-my-openagent</code> (<code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">omo</code>)</strong> (con más de 40.000 ⭐ en GitHub).</p><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">El objetivo es superar el paradigma de interactuar con una sola IA aislada y pasar a un <strong class="font-bold text-slate-900">equipo coordinado de 7 agentes especializados</strong> que trabajan en paralelo, se auto-corrigen, ejecutan pruebas en local y entregan proyectos complejos (como una landing page profesional con 10 secciones, blog y políticas) con <strong class="font-bold text-slate-900">cero errores en consola</strong> y sin intervención manual paso a paso.</p></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🚀 Qué te Llevas de esta Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1</span><div><strong class="font-bold text-slate-900">Swarm Secuencial vs. Swarm Paralelo:</strong> Cuándo usar pipelines por etapas lineales (<code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">opencode-swarm</code>) y cuándo desplegar swarms concurrentes (<code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">omo</code>).</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">2</span><div><strong class="font-bold text-slate-900">Equipo de 7 Agentes Especializados:</strong> Liderados por <strong class="font-bold text-slate-900">Sisyphus</strong> (el orquestador principal) junto a <strong class="font-bold text-slate-900">Prometheus</strong>, <strong class="font-bold text-slate-900">Hephaestus</strong>, <strong class="font-bold text-slate-900">Oracle</strong>, <strong class="font-bold text-slate-900">Librarian</strong>, <strong class="font-bold text-slate-900">Explore</strong> y agentes de testing.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">3</span><div><strong class="font-bold text-slate-900">Entrevista Previa con Prometheus:</strong> Cómo extraer todos los requisitos y arquitectura antes de escribir una sola línea de código.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">4</span><div><strong class="font-bold text-slate-900">Modo <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">ultrawork</code>:</strong> Automatización autónoma total: *"lo enciendes y te vas a hacer un café"*.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">5</span><div><strong class="font-bold text-slate-900">Enrutamiento Inteligente de Modelos (Ahorro de Costes):</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Modelos de Pago / Frontera (Claude Opus / 3.7 Sonnet, GPT-5.3 Codex):</strong> Asignados a *Sisyphus*, *Hephaestus* y *Prometheus*.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Modelos Gratuitos / Rápidos (Big Pickle, GPT Nano, Gemini Flash):</strong> Asignados a *Oracle*, *Librarian* y *Explore*.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">6</span><div><strong class="font-bold text-slate-900">Aislamiento de Archivos:</strong> Prevención de colisiones y conflictos git al reservar zonas de archivos exclusivas para cada agente.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧩 Comparativa: Swarm Secuencial vs. Swarm Paralelo
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>MERMAID</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_1')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_1">graph TD
+    subgraph "Swarm Secuencial (opencode-swarm)"
+        S1[1. Explorador] --&gt; S2[2. SME Experto]
+        S2 --&gt; S3[3. Arquitecto]
+        S3 --&gt; S4[4. Crítico]
+        S4 --&gt; S5[5. Coder]
+        S5 --&gt; S6[6. Reviewer]
+        S6 --&gt; S7[7. Tests &amp; Docs]
+    end
+
+    subgraph "Swarm Paralelo (oh-my-openagent / omo)"
+        P[Prometheus: Entrevista &amp; Plan] --&gt; O[Sisyphus: Orquestador Maestro]
+        O --&gt; A1[Hephaestus: Componentes UI]
+        O --&gt; A2[Coder B: Lógica &amp; Estado]
+        O --&gt; A3[Librarian: Docs &amp; Tipos]
+        O --&gt; A4[Oracle: Testing &amp; Consola]
+        A1 &amp; A2 &amp; A3 &amp; A4 --&gt; R[Auto-Corrección &amp; Verificación Local 0 Errores]
+    end</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> ⚙️ Configuración y Asignación de Modelos (`.opencode/oh-my-opencode.jsonc`)
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Puedes personalizar los modelos asignados a cada agente para maximizar calidad y reducir consumo de créditos:</p><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>JSONC</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_2')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_2">{
+  "orchestrator": {
+    "agent": "sisyphus",
+    "model": "claude-3-7-sonnet" // O claude-opus / gpt-5-codex
+  },
+  "planner": {
+    "agent": "prometheus",
+    "model": "claude-3-7-sonnet"
+  },
+  "builder": {
+    "agent": "hephaestus",
+    "model": "claude-3-7-sonnet"
+  },
+  "researchers": {
+    "agent": "oracle",
+    "model": "gemini-2.0-flash" // O modelos gratuitos de OpenCode Zen
+  },
+  "documentation": {
+    "agent": "librarian",
+    "model": "big-pickle" // Gratuito
+  }
+}</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🎮 Los 3 Modos de Operación
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="overflow-x-auto rounded-xl border border-slate-200 my-4"><table class="w-full text-left text-xs md:text-sm text-slate-700"><thead class="bg-slate-50 text-xs text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200"><tr><th class="p-3">Modo</th><th class="p-3">Comando / Activación</th><th class="p-3">Cuándo Utilizarlo</th></tr></thead><tbody class="divide-y divide-slate-100"><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">Prometheus + <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">/start-work</code></strong></td><td class="p-3">Inicia con entrevista interactiva</td><td class="p-3"><strong class="font-bold text-slate-900">Recomendado para proyectos nuevos.</strong> Extrae requisitos profundos, define diseño y genera el plan antes de codificar.</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">ultrawork</code></strong></td><td class="p-3">Comando de máxima velocidad autónoma</td><td class="p-3">Ideal cuando la especificación ya está clara y priorizas velocidad de ejecución desatendida.</td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3"><strong class="font-bold text-slate-900">Lenguaje Natural Directo</strong></td><td class="p-3">Prompt específico a Sisyphus</td><td class="p-3">Tareas puntuales, refactorizaciones concretas o adición de módulos aislados.</td></tr></tbody></table></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧠 Ideas y Aprendizajes Clave
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">La entrevista previa de Prometheus marca la diferencia:</strong> Invertir 5 minutos respondiendo a las preguntas de Prometheus multiplica la precisión del resultado final.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Tolerancia a Fallos y Cambio en Caliente:</strong> Si te quedas sin créditos en un proveedor (Anthropic), puedes cambiar el modelo del agente a OpenAI o Gemini en el archivo de configuración sin perder el estado ni reiniciar el proyecto.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Autonomía con Cero Errores:</strong> Los agentes ejecutan el servidor de desarrollo, leen los logs de la terminal, corrigen advertencias y entregan el proyecto probado en local.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📂 Recursos Disponibles
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">📘 Guía Oficial de la Comunidad:</strong> <a href="https://www.notion.so/oh-my-openagent-omo-Gu-a-para-la-Comunidad-3262cd2e5d1581ea8becd77ce7e33064" class="text-blue-600 hover:text-blue-800 font-semibold underline">Ver en Notion</a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">📦 Repositorio Swarm Secuencial:</strong> <a href="https://github.com/zaxbysauce/opencode-swarm" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://github.com/zaxbysauce/opencode-swarm</a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">📄 Recortes Locales:</strong> <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Swarm secuencial.textClipping</code> | <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Documentacion Swarm.textClipping</code></div></div></div></section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pt-6 border-t border-slate-200 text-center text-slate-500 text-xs space-y-1">
+    <p><strong>VibeStack Studio</strong> • Ecosistema Vibe Coding & IA • Toni Leblan & Antigravity IDE</p>
+    <p class="font-mono text-slate-400">Sincronizado: /Users/toni/Proyectos/Vibe-Coding/</p>
+  </footer>
+
+</div>
+
+<script>
+  function copyCode(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const btn = event.target;
+      const orig = btn.innerText;
+      btn.innerText = "¡Copiado!";
+      btn.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      setTimeout(() => {
+        btn.innerText = orig;
+        btn.classList.remove("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reel Engine: Generador de Guiones Virales • VibeStack Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-shadow {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+<div class="max-w-5xl mx-auto space-y-6">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+        <span>⚡</span> Taller Skool • Clase 02
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+        Reel Engine: Generador de Guiones Virales
+      </h1>
+      <p class="text-slate-600 text-sm md:text-base mt-1.5 max-w-2xl leading-relaxed">
+        Sistema de prompts encadenados para producir guiones de alta retención para Instagram Reels y TikTok.
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+      <a href="index.html" class="px-4 py-2.5 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
+        <span>←</span> Volver al Hub
+      </a>
+      <a href="Reel-Engine-Sistema-Reels-IA.md" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition flex items-center gap-2"><span>📄</span> Markdown</a>
+      
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="space-y-6">
+    <div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Fecha de la Clase:</strong> 23 Julio 2026  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Comunidad:</strong> Vibe Coding (Skool - IA Masters Automations)  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Grabación Contexto Pipeline:</strong> <a href="https://www.skool.com/ia-masters-automations/classroom/56b4a809?md=36ce41b000194715b4bef11fe82596a3" class="text-blue-600 hover:text-blue-800 font-semibold underline">Editar Reels con Claude — Pipeline Completo</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Grabación Primera Parte:</strong> <a href="https://www.skool.com/ia-masters-automations/classroom/b5848fd4?md=c7e93f2569704765a55647f015994ea8" class="text-blue-600 hover:text-blue-800 font-semibold underline">Monta tu Editor de Videos con IA</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Archivos del Proyecto:</strong> <a href="./forja-reel-engine.skill" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel-engine.skill</code></a> | <a href="./forja-reel.skill" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel.skill</code></a> | <a href="./forja-reel-engine-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel-engine-explicacion.html</code></a> | <a href="./forja-reel-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel-explicacion.html</code></a> | <a href="./reel-edita-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">reel-edita-explicacion.html</code></a></div><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🎯 Objetivo de la Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Presentar y configurar <strong class="font-bold text-slate-900"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">/forja-reel-engine</code></strong>: la <strong class="font-bold text-slate-900">meta-skill</strong> que monta tu sistema completo de reels con Inteligencia Artificial. No es un editor de video aislado; es un <strong class="font-bold text-slate-900">motor compuesto por 5 skills integradas</strong> en un solo bucle continuo que se retroalimenta automáticamente y aprende de lo que realmente funciona en tu propia cuenta.</p></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🚀 Qué te Llevas de esta Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1</span><div><strong class="font-bold text-slate-900">Meta-Skill <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">/forja-reel-engine</code> lista para instalar:</strong> Te entrevista sobre tu nicho, tu tono de voz y tu frecuencia de publicación para generarte una skill final 100% personalizada.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">2</span><div><strong class="font-bold text-slate-900">El Bucle Completo de 5 Skills:</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>✍️ <strong class="font-bold text-slate-900">Guión:</strong> Generación desde noticias del sector, transcripciones de videos o ideas en bruto.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>🎬 <strong class="font-bold text-slate-900">Edición de Video:</strong> Ensamblaje automatizado, cortes de silencios, b-rolls, captions animados y música.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>📢 <strong class="font-bold text-slate-900">Publicación:</strong> Generación de copies optimizados, hashtags estratégicos y programación (conectable con GoHighLevel / Make / n8n).</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>📡 <strong class="font-bold text-slate-900">Reel Radar:</strong> Lectura automática de métricas reales (alcance, retención, guardados, comentarios).</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>🔄 <strong class="font-bold text-slate-900">Reel Feedback:</strong> Auditoría semanal de rendimiento que sintetiza aprendizajes.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">3</span><div><strong class="font-bold text-slate-900">El "Cerebro" (Playbook Vivo):</strong> Un manual de operaciones que se actualiza autónomamente. Si detecta que los ganchos confrontativos generan 3x más retención, fuerza los próximos guiones y ediciones en esa línea.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">4</span><div><strong class="font-bold text-slate-900">Automatización Semanal:</strong> Rutina de análisis periódica (ej. cada lunes) para iterar sin esfuerzo manual.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧩 Arquitectura del Reel Engine (5 Skills en Bucle)
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>MERMAID</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_1')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_1">graph TD
+    A[💡 Fuentes de Ideas / Noticias] --&gt; B[1. Skill Guión: Creación de Hooks y Estructura]
+    B --&gt; C[2. Skill Edición: Montaje de Video con IA]
+    C --&gt; D[3. Skill Publicación: Copy, Hashtags y Programación]
+    D --&gt; E[📱 Redes Sociales: Instagram / TikTok / Shorts]
+    E --&gt;|Extension Claude in Chrome| F[4. Skill Reel Radar: Extracción de Métricas]
+    F --&gt; G[5. Skill Reel Feedback: Análisis Semanal]
+    G --&gt;|Actualiza Pautas en Tiempo Real| H[(🧠 Playbook Vivo / Cerebro)]
+    H --&gt;|Refina Hooks, Tono y Edición| B
+    H --&gt;|Ajusta Ritmo y Música| C</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> ⚙️ Las 4 Fases de la Meta-Skill `/forja-reel-engine`
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1</span><div><strong class="font-bold text-slate-900">Fase 1: Entrevista de Personalización:</strong></div></div><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">   La ejecutas en tu terminal o agente y te pregunta: tu nicho, tono de voz, plataformas destino, frecuencia de subida y tus fuentes de inspiración.</p><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">2</span><div><strong class="font-bold text-slate-900">Fase 2: Auditoría del Entorno:</strong></div></div><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">   Comprueba si tienes instalado el motor de edición (<code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">/forja-reel</code> o pipeline de edición previa) y las dependencias necesarias.</p><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">3</span><div><strong class="font-bold text-slate-900">Fase 3: Generación de las 4 Sub-skills y el Cerebro:</strong></div></div><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">   Crea y enlaza las skills de Guión, Publicación, Reel Radar y Reel Feedback junto con el documento <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">playbook.md</code> vivo.</p><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">4</span><div><strong class="font-bold text-slate-900">Fase 4: Despliegue de tu Comando Maestro:</strong></div></div><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">   Te entrega tu skill unificada (ej. <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">/reel-completo</code>), lista para generar, editar y medir tus publicaciones.</p></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🛠️ Requisitos Previos
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Editor de Vídeo previo montado:</strong> Debes tener configurada la skill de edición de la clase anterior (<a href="./forja-reel.skill" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel.skill</code></a> / <a href="./reel-edita-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">reel-edita-explicacion.html</code></a>).</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Instagram logueado en Chrome:</strong> Con la extensión *Claude in Chrome* o sesión activa para que el Reel Radar pueda leer tus insights de métricas.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧠 Aprendizajes Clave
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Publicar sin bucle no genera tracción:</strong> Lo que escala tu cuenta es el bucle <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Idea ➔ Guión ➔ Edición ➔ Publicar ➔ Medir ➔ Aprender ➔ Repetir</code>.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">El Playbook Vivo es tu mayor activo:</strong> Con cada semana que pasa, el sistema se vuelve más inteligente y afina el estilo específico que le gusta a tu audiencia.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📂 Recursos Disponibles
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🌐 Presentación Interactiva del Engine:</strong> <a href="./forja-reel-engine-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel-engine-explicacion.html</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🌐 Guía del Editor de Video (Parte 1):</strong> <a href="./reel-edita-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">reel-edita-explicacion.html</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🌐 Explicación Forja Reel:</strong> <a href="./forja-reel-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel-explicacion.html</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">📦 MetaSkill Reel Engine:</strong> <a href="./forja-reel-engine.skill" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel-engine.skill</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">📦 Skill Editor de Video:</strong> <a href="./forja-reel.skill" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">forja-reel.skill</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🎥 Grabación Skool Pipeline:</strong> <a href="https://www.skool.com/ia-masters-automations/classroom/56b4a809?md=36ce41b000194715b4bef11fe82596a3" class="text-blue-600 hover:text-blue-800 font-semibold underline">Ver en Skool</a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🎥 Grabación Skool Monta tu Editor:</strong> <a href="https://www.skool.com/ia-masters-automations/classroom/b5848fd4?md=c7e93f2569704765a55647f015994ea8" class="text-blue-600 hover:text-blue-800 font-semibold underline">Ver en Skool</a></div></div></div></section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pt-6 border-t border-slate-200 text-center text-slate-500 text-xs space-y-1">
+    <p><strong>VibeStack Studio</strong> • Ecosistema Vibe Coding & IA • Toni Leblan & Antigravity IDE</p>
+    <p class="font-mono text-slate-400">Sincronizado: /Users/toni/Proyectos/Vibe-Coding/</p>
+  </footer>
+
+</div>
+
+<script>
+  function copyCode(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const btn = event.target;
+      const orig = btn.innerText;
+      btn.innerText = "¡Copiado!";
+      btn.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      setTimeout(() => {
+        btn.innerText = orig;
+        btn.classList.remove("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camarero Virtual (Ramiro) & Cocina en Tiempo Real • VibeStack Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-shadow {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+<div class="max-w-5xl mx-auto space-y-6">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+        <span>⚡</span> Taller Skool • Clase 21
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+        Camarero Virtual (Ramiro) & Cocina en Tiempo Real
+      </h1>
+      <p class="text-slate-600 text-sm md:text-base mt-1.5 max-w-2xl leading-relaxed">
+        App para restaurantes con pedidos QR, asistente de voz interactivo con Gemini Live y panel KDS en cocina.
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+      <a href="index.html" class="px-4 py-2.5 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
+        <span>←</span> Volver al Hub
+      </a>
+      <a href="Camarero-Virtual-Cocina-Tiempo-Real.md" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition flex items-center gap-2"><span>📄</span> Markdown</a>
+      <a href="https://aistudio.google.com/apps/drive/1OEt1XjSZeprvwbFIDtpcB4XCTZwL_xgZ?showPreview=true&showAssistant=true" target="_blank" class="px-4 py-2.5 bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 text-xs font-semibold rounded-xl transition flex items-center gap-2"><span>🚀</span> AI Studio App ↗</a>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="space-y-6">
+    <div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Origen Masterclass:</strong> Sistema Completo de Restaurante con IA, KDS y n8n  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">App Google AI Studio:</strong> <a href="https://aistudio.google.com/apps/drive/1OEt1XjSZeprvwbFIDtpcB4XCTZwL_xgZ?showPreview=true&showAssistant=true" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://aistudio.google.com/apps/drive/1OEt1XjSZeprvwbFIDtpcB4XCTZwL_xgZ</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Stack Técnico:</strong> React 18, TypeScript, Tailwind CSS, Gemini Multimodal Live API, n8n, Google Sheets  </div><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🛠️ ¿Qué conseguimos con esta automatización?
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1</span><div><strong class="font-bold text-slate-900">Pedidos desde el móvil vía QR:</strong> Cada mesa tiene un código QR único con el número de mesa precargado.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">2</span><div><strong class="font-bold text-slate-900">Doble modalidad de pedido:</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Selección visual desde la carta digital interactiva.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Pedido conversacional por voz/texto con el camarero virtual con IA (<strong class="font-bold text-slate-900">Ramiro</strong>).</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">3</span><div><strong class="font-bold text-slate-900">Recepción en Cocina en Tiempo Real (KDS):</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>El pedido aparece borroso por defecto hasta que el cocinero pulsa <strong class="font-bold text-slate-900">"Aceptar ticket"</strong> para garantizar el control operativo y evitar olvidos.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">4</span><div><strong class="font-bold text-slate-900">Trazabilidad de Tiempos:</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Hora del pedido.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Hora de aceptación en cocina.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Hora de entrega y servicio en mesa.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">5</span><div><strong class="font-bold text-slate-900">Base de Datos en Google Sheets (vía n8n):</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Flujo *Append or Update* automático por ID de pedido.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">6</span><div><strong class="font-bold text-slate-900">Producto Vendible para Restaurantes:</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Sin necesidad de tablets costosas ni hardware dedicado (funciona en cualquier navegador de móvil/PC).</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧩 Arquitectura del Flujo Automatizado
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>MERMAID</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_1')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_1">graph TD
+    A[Cliente escanea QR de Mesa] --&gt; B[Web App: Carta + Asistente Ramiro]
+    B --&gt;|Gemini Live Voice| C[Herramientas: addToOrder / confirmOrder]
+    C --&gt; D[Envío de Pedido a Cocina KDS]
+    D --&gt; E[Ticket Borroso en Cocina]
+    E --&gt;|Cocina pulsa 'Aceptar'| F[Estado: En Preparación + Timestamp Aceptación]
+    F --&gt;|Cocina pulsa 'Servir'| G[Estado: Entregado + Timestamp Servicio]
+    G --&gt; H[n8n Webhook: Append/Update en Google Sheets]</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🤖 Prompt e Instrucción de Sistema de "Ramiro" (Gemini Live)
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>TEXT</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_2')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_2">SISTEMA: Eres Ramiro, un camarero virtual profesional (voz masculina, acento español de España).
+Tu rol es asistir a clientes en sus pedidos de forma amigable, respetuosa y eficiente.
+
+REGLAS CRÍTICAS DE HERRAMIENTAS (TOOLS):
+1. USO DE addToOrder:
+   - USA esta herramienta SOLO cuando el cliente explícitamente pide AÑADIR algo nuevo.
+   - NO la uses cuando estás recapitulando o listando lo que ya han pedido.
+   - Si el cliente dice "Sí" a tu resumen, NO vuelvas a añadir los platos.
+
+2. USO DE removeFromOrder:
+   - Si el cliente dice "Quita la ensalada", "Borra el agua", usa esta herramienta.
+
+3. USO DE confirmOrder:
+   - Úsala cuando el cliente diga "Confirma", "Marcha el pedido", "Todo ok", "Ya está".
+   - Antes de llamar a esta herramienta, asegúrate de que el cliente ha terminado.
+
+REGLAS CONVERSACIONALES:
+- Pregunta número de comensales y preferencias (alérgenos, celíacos, veganos).
+- Sugiere maridajes de bebida o postres de la carta.
+- Sé conciso, profesional y con chispa cordial.</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📊 Estructura de Datos en Google Sheets (Payload n8n)
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>JSON</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_3')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_3">{
+  "ID_Pedido": "ORD-2026-M4-8841",
+  "Mesa": "Mesa 4",
+  "Items": "2x Hamburguesa Trufada, 1x Patatas Rústicas, 2x Cerveza IPA",
+  "Total_Euros": 42.50,
+  "Estado": "Cocina / En Preparación",
+  "Hora_Pedido": "14:32:05",
+  "Hora_Aceptacion": "14:33:12",
+  "Hora_Entrega": "14:48:30",
+  "Comensales": 2,
+  "Notas_Alergenos": "Patatas sin gluten"
+}</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧠 Consejos Clave de Negocio y Venta
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Prototipado Ultrarrápido:</strong> Con Google AI Studio puedes montar y presentar un prototipo funcional en menos de 1 hora.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Control de Cocina:</strong> El desenfoque forzado del ticket garantiza que cocina valida los pedidos y previene quejas de clientes.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Monetización:</strong> Este sistema se vende fácilmente a restaurantes locales por una tarifa de implantación (500€ - 1.500€) más cuota mensual de mantenimiento/soporte.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📚 Enlaces de Referencia
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Google AI Studio App:</strong> <a href="https://aistudio.google.com/apps/drive/1OEt1XjSZeprvwbFIDtpcB4XCTZwL_xgZ?showPreview=true&showAssistant=true" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://aistudio.google.com/apps/drive/1OEt1XjSZeprvwbFIDtpcB4XCTZwL_xgZ</a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Documentación n8n:</strong> <a href="https://docs.n8n.io/" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://docs.n8n.io/</a></div></div></div></section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pt-6 border-t border-slate-200 text-center text-slate-500 text-xs space-y-1">
+    <p><strong>VibeStack Studio</strong> • Ecosistema Vibe Coding & IA • Toni Leblan & Antigravity IDE</p>
+    <p class="font-mono text-slate-400">Sincronizado: /Users/toni/Proyectos/Vibe-Coding/</p>
+  </footer>
+
+</div>
+
+<script>
+  function copyCode(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const btn = event.target;
+      const orig = btn.innerText;
+      btn.innerText = "¡Copiado!";
+      btn.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      setTimeout(() => {
+        btn.innerText = orig;
+        btn.classList.remove("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

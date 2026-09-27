@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De n8n a App Web: Sistema de Ticketing con Supabase • VibeStack Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-shadow {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+<div class="max-w-5xl mx-auto space-y-6">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+        <span>⚡</span> Taller Skool • Clase 14
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+        De n8n a App Web: Sistema de Ticketing con Supabase
+      </h1>
+      <p class="text-slate-600 text-sm md:text-base mt-1.5 max-w-2xl leading-relaxed">
+        Cómo migrar un flujo de n8n a una aplicación web completa con frontend interactivo y base de datos relacional Supabase.
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+      <a href="index.html" class="px-4 py-2.5 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
+        <span>←</span> Volver al Hub
+      </a>
+      <a href="De-N8N-a-App-Web-Ticketing-Supabase.md" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition flex items-center gap-2"><span>📄</span> Markdown</a>
+      
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="space-y-6">
+    <div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Comunidad:</strong> Vibe Coding (Skool - IA Masters Automations)  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Repositorio de Skills:</strong> <a href="https://github.com/sickn33/antigravity-awesome-skills" class="text-blue-600 hover:text-blue-800 font-semibold underline">Awesome Skills GitHub</a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Catálogo AAS en Hub:</strong> <a href="./Agentic-Awesome-Skills-Guia-Completa.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Agentic-Awesome-Skills-Guia-Completa.html</code></a> | <a href="./Agentic-Awesome-Skills-Guia-Completa.md" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Agentic-Awesome-Skills-Guia-Completa.md</code></a></div><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🎯 Objetivo de la Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Aprender a transformar un workflow de automatización técnica en <strong class="font-bold text-slate-900">n8n</strong> en una <strong class="font-bold text-slate-900">aplicación web profesional completa</strong> (Frontend React + Backend + Base de datos Supabase + Emailing transaccional + Escáner y Validación QR en tiempo real) en apenas <strong class="font-bold text-slate-900">15 minutos</strong> utilizando <strong class="font-bold text-slate-900">Antigravity</strong>, protocolo <strong class="font-bold text-slate-900">MCP</strong> y <strong class="font-bold text-slate-900">skills predefinidas (App Builder)</strong>.</p></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🚀 Qué te Llevas de esta Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1</span><div><strong class="font-bold text-slate-900">De Automatización a Producto:</strong> Pasar de un flujo aislado de n8n a un SaaS / dashboard visual intuitivo para usuarios finales.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">2</span><div><strong class="font-bold text-slate-900">Sistema de Ticketing Integral:</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Creación y categorización de eventos y tipos de entradas.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Generación automática de código QR único por ticket.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Envío de emails automáticos con el pase QR adjunto.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Escáner y validación de tickets en puerta con actualización de estado en tiempo real.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">3</span><div><strong class="font-bold text-slate-900">Aprovisionamiento Automático en Supabase:</strong> Creación de tablas, claves foráneas, políticas RLS y tipos mediante <strong class="font-bold text-slate-900">Supabase MCP</strong> sin tocar la interfaz web manualmente.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">4</span><div><strong class="font-bold text-slate-900">Seguridad y Delegación en n8n:</strong> Evitar exponer credenciales SMTP o claves secretas en el frontend derivando el envío de correos a un webhook de n8n generado por la IA.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">5</span><div><strong class="font-bold text-slate-900">Aceleración con Skills AAS:</strong> Uso de la skill <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">App Builder</code> como brújula arquitectónica para definir UX, lógica de negocio y esquemas de base de datos.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧩 Arquitectura del Sistema de Ticketing
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>MERMAID</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_1')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_1">graph TD
+    A[👨‍💼 Administrador: Dashboard Web] --&gt;|Crea Evento &amp; Emite Entrada| B[(🗄️ Supabase DB via MCP)]
+    B --&gt;|Trigger Webhook| C[🔄 Workflow n8n: Emailing Seguro]
+    C --&gt;|Genera QR &amp; Envía Email| D[📧 Asistente / Comprador: Recibe Entrada con QR]
+    D --&gt;|Llega al Evento con su Móvil| E[📱 Staff en Puerta: Escáner QR en App Web]
+    E --&gt;|Valida Ticket en Vivo| B
+    B --&gt;|Actualiza Estado: Usado / Timestamp| A</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> ⚙️ El Flujo de Construcción en 5 Pasos
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">1. Preparación y Referencias</h3><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Se importan los archivos HTML del sistema previo y el archivo <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">.json</code> del workflow de n8n en el workspace.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Se activa la skill especializada <strong class="font-bold text-slate-900"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">App Builder</code></strong> (disponible en el catálogo <a href="./Agentic-Awesome-Skills-Guia-Completa.html" class="text-blue-600 hover:text-blue-800 font-semibold underline">AAS Core</a>).</div></div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">2. Prompt Maestro con Plan de Implementación</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Se solicita a Antigravity:</p><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1</span><div>Analizar el workflow de n8n y los recursos previos.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">2</span><div>Conectarse a <strong class="font-bold text-slate-900">Supabase vía MCP</strong> y diseñar el esquema de tablas (<code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">events</code>, <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">tickets</code>, <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">attendees</code>, <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">checkins</code>).</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">3</span><div>Presentar un plan de implementación detallado antes de escribir código.</div></div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">3. Aprovisionamiento y Desarrollo Autónomo</h3><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Antigravity ejecuta las migraciones SQL en Supabase de forma desatendida.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Construye el frontend React con Tailwind: panel de eventos, listado de asistentes, generador de QR y lector con cámara web para validación en puerta.</div></div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">4. Flujo de Emailing Seguro con n8n</h3><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Para no almacenar credenciales de correo (Resend, SendGrid, Gmail) en el cliente web, Antigravity genera el JSON del workflow de n8n.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Se pega en n8n y se activa como webhook de notificación instantánea.</div></div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">5. Validación y Pruebas en Vivo</h3><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Emisión de ticket de prueba ➔ Recepción de email con QR ➔ Escaneo con la cámara ➔ Validación y bloqueo antirreutilización en Supabase.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧠 Principios y Consejos Clave
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Pensar en Producto, no solo en Script:</strong> La diferencia entre una automatización invisible y un proyecto vendible es una interfaz limpia que cualquier empleado o cliente pueda usar.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Las Skills Estructuran la IA:</strong> Una skill como <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">App Builder</code> evita que el modelo improvise arquitecturas débiles y fuerza estándares de diseño y tipado estricto.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Separación de Responsabilidades:</strong> La web gestiona la experiencia visual y la validación en puerta; n8n gestiona los procesos asíncronos y envíos de correo seguros.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📂 Recursos Disponibles
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">📦 Repositorio Awesome Skills:</strong> <a href="https://github.com/sickn33/antigravity-awesome-skills" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://github.com/sickn33/antigravity-awesome-skills</a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🌟 Catálogo Completo AAS (2,474+ Skills):</strong> <a href="./Agentic-Awesome-Skills-Guia-Completa.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Agentic-Awesome-Skills-Guia-Completa.html</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🏛️ Catálogo de Skills Oficiales de Anthropic:</strong> <a href="./Anthropic-Official-Skills-Catalogo.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Anthropic-Official-Skills-Catalogo.html</code></a></div></div></div></section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pt-6 border-t border-slate-200 text-center text-slate-500 text-xs space-y-1">
+    <p><strong>VibeStack Studio</strong> • Ecosistema Vibe Coding & IA • Toni Leblan & Antigravity IDE</p>
+    <p class="font-mono text-slate-400">Sincronizado: /Users/toni/Proyectos/Vibe-Coding/</p>
+  </footer>
+
+</div>
+
+<script>
+  function copyCode(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const btn = event.target;
+      const orig = btn.innerText;
+      btn.innerText = "¡Copiado!";
+      btn.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      setTimeout(() => {
+        btn.innerText = orig;
+        btn.classList.remove("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

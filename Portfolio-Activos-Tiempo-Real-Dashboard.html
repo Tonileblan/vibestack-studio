@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio de Activos en Tiempo Real • VibeStack Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-shadow {
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    }
+    .card-shadow-hover:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+<div class="max-w-5xl mx-auto space-y-6">
+
+  <!-- TOP HEADER -->
+  <header class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
+        <span>⚡</span> Taller Skool • Clase 17
+      </div>
+      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
+        Portfolio de Activos en Tiempo Real
+      </h1>
+      <p class="text-slate-600 text-sm md:text-base mt-1.5 max-w-2xl leading-relaxed">
+        Dashboard financiero interactivo que monitoriza criptomonedas, acciones y ETFs con gráficos en tiempo real.
+      </p>
+    </div>
+    
+    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+      <a href="index.html" class="px-4 py-2.5 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
+        <span>←</span> Volver al Hub
+      </a>
+      <a href="Portfolio-Activos-Tiempo-Real-Dashboard.md" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition flex items-center gap-2"><span>📄</span> Markdown</a>
+      
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="space-y-6">
+    <div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Comunidad:</strong> Vibe Coding (Skool - IA Masters Automations)  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">API de Mercado:</strong> <a href="https://github.com/ranaroussi/yfinance" class="text-blue-600 hover:text-blue-800 font-semibold underline">yfinance en GitHub</a> | <a href="./YFinance-Guia-Maestra-Datos-Financieros.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">YFinance-Guia-Maestra-Datos-Financieros.html</code></a>  </div><div class="p-3.5 bg-blue-50/50 border-l-4 border-blue-500 rounded-r-xl text-xs md:text-sm text-slate-800 font-medium my-3"><strong class="font-bold text-slate-900">Aprovisionamiento de Datos:</strong> Supabase Cloud vía Supabase MCP  </div><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🎯 Objetivo de la Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Construir un <strong class="font-bold text-slate-900">dashboard financiero profesional y automatizado</strong> para unificar y controlar todo el patrimonio familiar o personal (acciones, criptomonedas, fondos indexados, cuentas bancarias en distintas divisas). </p><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">El sistema resuelve la dispersión de activos en múltiples brokers y plataformas, automatizando:</p><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1</span><div>La consulta de cotizaciones en tiempo real mediante <strong class="font-bold text-slate-900">Yahoo Finance</strong>.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">2</span><div>La conversión automática de divisas (<strong class="font-bold text-slate-900">EUR/USD</strong>) con normalización del patrimonio total.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">3</span><div>El cálculo dinámico del <strong class="font-bold text-slate-900">Precio Medio Ponderado (PMP)</strong>, variación 24h y <strong class="font-bold text-slate-900">P&L (Profit & Loss)</strong> acumulado e histórico.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">4</span><div>El registro inmutable de compras/ventas sincronizadas con <strong class="font-bold text-slate-900">Supabase</strong>.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">5</span><div>Módulos avanzados de proyección: <strong class="font-bold text-slate-900">Simulador de Interés Compuesto</strong>, <strong class="font-bold text-slate-900">Estimador de Fiscalidad por Tramos en España</strong> y <strong class="font-bold text-slate-900">Regla del 4% para Independencia Financiera (FIRE)</strong>.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🚀 Qué te Llevas de esta Clase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Visión Patrimonial 360°:</strong> Todo tu capital unificado en una sola pantalla sin depender de hojas de cálculo desactualizadas.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Cero Trabajo Manual de Actualización:</strong> Precios, divisas y variaciones se refrescan de forma automática.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Precisión Contable:</strong> Registro de transacciones con recálculo de precio medio ponderado y comisiones.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Aprovisionamiento Asistido con Supabase MCP:</strong> Creación y mantenimiento de las tablas <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">activos</code>, <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">historial</code> y <code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">transacciones</code> sin tocar la interfaz web de base de datos.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Planificación Financiera a Largo Plazo:</strong></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Simulador de interés compuesto con aportaciones periódicas y escenarios (conservador, realista, optimista).</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Cálculo de retención fiscal estimada sobre plusvalías según los tramos del IRPF (Ahorro) en España.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>Regla del 4% (Trinity Study) para proyectar la renta mensual sostenible y los años de cobertura financiera.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Ingeniería Inversa:</strong> Metodología y prompt maestro para clonar, adaptar o extender cualquier dashboard de finanzas.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧩 Arquitectura del Sistema Financiero
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>MERMAID</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_1')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_1">graph TD
+    A[📈 Yahoo Finance API / yfinance] --&gt;|Precios en vivo &amp; Variación 24h| D[💻 Dashboard Frontend React + Tailwind]
+    B[💱 Exchange Rate API EUR/USD] --&gt;|Conversión de Divisas| D
+    C[👨‍💼 Inversor: Registra Compra / Venta] --&gt;|Nueva Transacción| D
+    
+    D --&gt;|Lectura &amp; Escritura Automática| S[(🗄️ Supabase DB via MCP)]
+    
+    subgraph "Tablas en Supabase"
+        S1[📋 activos: Ticker, Cantidad, Moneda, PMP]
+        S2[📜 transacciones: Tipo, Precio, Fee, Fecha]
+        S3[📊 historial: Snapshots de Valor &amp; Patrimonio]
+    end
+    
+    S --&gt; S1
+    S --&gt; S2
+    S --&gt; S3
+    
+    subgraph "Módulos de Simulación y Análisis"
+        M1[🚀 Simulador Interés Compuesto]
+        M2[⚖️ Fiscalidad Tramos España]
+        M3[🎯 Regla del 4% FIRE]
+    end
+    
+    D --&gt; M1
+    D --&gt; M2
+    D --&gt; M3</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> ⚙️ Estructura de Tablas en Supabase
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">1. Tabla `activos`</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Almacena la posición consolidada de cada instrumento financiero:</p><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>SQL</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_2')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_2">CREATE TABLE activos (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  ticker TEXT NOT NULL UNIQUE,
+  nombre TEXT NOT NULL,
+  categoria TEXT CHECK (categoria IN ('Acciones', 'Cripto', 'Fondos', 'Efectivo')),
+  cantidad NUMERIC NOT NULL DEFAULT 0,
+  moneda TEXT CHECK (moneda IN ('EUR', 'USD')),
+  precio_medio_compra NUMERIC NOT NULL DEFAULT 0,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);</code></pre>
+        </div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">2. Tabla `transacciones`</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Historial de compras, ventas y aportaciones de capital:</p><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>SQL</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_3')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_3">CREATE TABLE transacciones (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  activo_id UUID REFERENCES activos(id) ON DELETE CASCADE,
+  tipo TEXT CHECK (tipo IN ('COMPRA', 'VENTA', 'DEPOSITO', 'RETIRO')),
+  cantidad NUMERIC NOT NULL,
+  precio_unitario NUMERIC NOT NULL,
+  comision NUMERIC DEFAULT 0,
+  moneda TEXT CHECK (moneda IN ('EUR', 'USD')),
+  fecha TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);</code></pre>
+        </div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">3. Tabla `historial`</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Snapshots periódicos para generar gráficas de evolución temporal:</p><div class="border border-slate-200 rounded-xl overflow-hidden bg-slate-50 my-4">
+          <div class="flex justify-between items-center bg-slate-100 px-4 py-2 border-b border-slate-200 text-xs font-mono text-slate-600 font-semibold">
+            <span>SQL</span>
+            <button class="bg-white border border-slate-300 text-slate-700 px-2.5 py-1 rounded text-xs hover:bg-slate-50 transition" onclick="copyCode('code_4')">Copiar</button>
+          </div>
+          <pre class="p-4 text-xs font-mono text-slate-800 overflow-x-auto"><code id="code_4">CREATE TABLE historial (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  patrimonio_total_usd NUMERIC NOT NULL,
+  patrimonio_total_eur NUMERIC NOT NULL,
+  beneficio_acumulado_usd NUMERIC NOT NULL,
+  fecha TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);</code></pre>
+        </div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧮 Módulos y Fórmulas Matemáticas
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">1. Precio Medio Ponderado (PMP)</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">Cuando se ejecuta una nueva compra de $N$ acciones a precio $P$:</p><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">$$PMP_{nuevo} = \frac{(Cantidad_{actual} \times PMP_{actual}) + (Cantidad_{nueva} \times Precio_{nuevo}) + Comisiones}{Cantidad_{actual} + Cantidad_{nueva}}$$</p><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">2. Simulación de Interés Compuesto</h3><p class="text-xs md:text-sm text-slate-700 leading-relaxed my-2">$$Valor\ Final = P \times (1 + r)^t + PMT \times \frac{(1 + r)^t - 1}{r}$$</p><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>$P$: Capital inicial</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>$PMT$: Aportación periódica mensual</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>$r$: Tasa de rentabilidad anual (dividida por 12)</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div>$t$: Meses totales de inversión</div></div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">3. Tramos IRPF del Ahorro (España)</h3><div class="overflow-x-auto rounded-xl border border-slate-200 my-4"><table class="w-full text-left text-xs md:text-sm text-slate-700"><thead class="bg-slate-50 text-xs text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200"><tr><th class="p-3">Base Liquidable del Ahorro</th><th class="p-3">Tipo Impositivo</th></tr></thead><tbody class="divide-y divide-slate-100"><tr class="hover:bg-slate-50/80 transition"><td class="p-3">Hasta 6.000 €</td><td class="p-3"><strong class="font-bold text-slate-900">19%</strong></td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3">De 6.000 € a 50.000 €</td><td class="p-3"><strong class="font-bold text-slate-900">21%</strong></td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3">De 50.000 € a 200.000 €</td><td class="p-3"><strong class="font-bold text-slate-900">23%</strong></td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3">De 200.000 € a 300.000 €</td><td class="p-3"><strong class="font-bold text-slate-900">27%</strong></td></tr><tr class="hover:bg-slate-50/80 transition"><td class="p-3">Más de 300.000 €</td><td class="p-3"><strong class="font-bold text-slate-900">28%</strong></td></tr></tbody></table></div><h3 class="text-base font-bold text-slate-900 mt-4 mb-2">4. Regla del 4% (Independencia Financiera - FIRE)</h3><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Capital Necesario para Jubilación:</strong> $Gastos\ Anuales \times 25$</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Renta Anual Sostenible:</strong> $Patrimonio\ Total \times 0.04$</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">Renta Mensual Neta Estimada:</strong> $\frac{Renta\ Anual \times (1 - Retención\ Media)}{12}$</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 🧠 Consejos y Buenas Prácticas
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">1</span><div><strong class="font-bold text-slate-900">Automatización Obligatoria de Precios:</strong> Introducir precios a mano genera desfase temporal y conduce a malas decisiones en momentos de volatilidad.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">2</span><div><strong class="font-bold text-slate-900">Normalización de Divisas:</strong> Mantener siempre un contravalor de referencia en una moneda base (USD o EUR) para evitar distorsiones por el tipo de cambio.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">3</span><div><strong class="font-bold text-slate-900">Registro Inmutable de Transacciones:</strong> Nunca edites la cantidad de un activo a mano sin registrar la transacción que lo originó; de lo contrario, el cálculo de plusvalías fiscales será incorrecto.</div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">4</span><div><strong class="font-bold text-slate-900">Ingeniería Inversa:</strong> Si ves un dashboard financiero de referencia que te gusta, extrae sus KPIs y deja que Antigravity lo replique estructurando el esquema en Supabase.</div></div></div></section><section class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span class="text-blue-600">⚡</span> 📂 Recursos y Enlaces Relacionados
+          </h2>
+        </div>
+        <div class="text-slate-700 text-sm leading-relaxed space-y-3"><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">📘 Guía Maestra yfinance:</strong> <a href="./YFinance-Guia-Maestra-Datos-Financieros.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">YFinance-Guia-Maestra-Datos-Financieros.html</code></a> \| <a href="./YFinance-Guia-Maestra-Datos-Financieros.md" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">YFinance-Guia-Maestra-Datos-Financieros.md</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">🌟 Catálogo Completo AAS (2,474+ Skills):</strong> <a href="./Agentic-Awesome-Skills-Guia-Completa.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">Agentic-Awesome-Skills-Guia-Completa.html</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">⚡ Hub Central de Recursos:</strong> <a href="./index.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">index.html</code></a> \| <a href="./README.html" class="text-blue-600 hover:text-blue-800 font-semibold underline"><code class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">README.html</code></a></div></div><div class="flex items-start gap-2 text-xs md:text-sm text-slate-700 my-1.5"><span class="text-blue-500 font-bold">•</span><div><strong class="font-bold text-slate-900">📦 Repositorio yfinance:</strong> <a href="https://github.com/ranaroussi/yfinance" class="text-blue-600 hover:text-blue-800 font-semibold underline">https://github.com/ranaroussi/yfinance</a></div></div></div></section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="pt-6 border-t border-slate-200 text-center text-slate-500 text-xs space-y-1">
+    <p><strong>VibeStack Studio</strong> • Ecosistema Vibe Coding & IA • Toni Leblan & Antigravity IDE</p>
+    <p class="font-mono text-slate-400">Sincronizado: /Users/toni/Proyectos/Vibe-Coding/</p>
+  </footer>
+
+</div>
+
+<script>
+  function copyCode(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const btn = event.target;
+      const orig = btn.innerText;
+      btn.innerText = "¡Copiado!";
+      btn.classList.add("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      setTimeout(() => {
+        btn.innerText = orig;
+        btn.classList.remove("bg-emerald-50", "text-emerald-700", "border-emerald-200");
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
