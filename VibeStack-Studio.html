@@ -3,1156 +3,1507 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VibeStack Studio • Hub de Proyectos & Ecosistema IA</title>
+  <title>VibeStack Studio • Panel Ejecutivo de Recursos & Ecosistema IA</title>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <style>
+    /* ==========================================================================
+       SYSTEM DIRECTIVE DESIGN SYSTEM: 0% NON-DATA PIXELS, 10PX REM, WCAG 2.2 AA
+       ========================================================================== */
+    :root {
+      /* Base 10px Rem System */
+      font-size: 62.5%;
+      
+      /* Semantic Palette (Max 5-6 core tones, WCAG 4.5:1 Contrast) */
+      --bg-canvas: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --border-color: #CBD5E1;
+      --border-light: #E2E8F0;
+      
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #64748B;
+      
+      /* Category Semantics */
+      --color-skool: #D97706;       /* Amber 600 - Clases Skool */
+      --color-skool-bg: #FEF3C7;
+      --color-master: #2563EB;      /* Blue 600 - Guías Maestras */
+      --color-master-bg: #DBEAFE;
+      --color-prompts: #7C3AED;     /* Purple 600 - Prompts & Skills */
+      --color-prompts-bg: #EDE9FE;
+      --color-arch: #059669;        /* Emerald 600 - Arquitectura IA */
+      --color-arch-bg: #D1FAE5;
+      
+      --color-focus: #0284C7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: #f8fafc;
-      color: #0f172a;
-      line-height: 1.5;
+      font-size: 1.4rem;
+      line-height: 1.45;
+      color: var(--text-primary);
+      background-color: var(--bg-canvas);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
       -webkit-font-smoothing: antialiased;
     }
+
     .font-mono {
       font-family: 'JetBrains Mono', monospace;
     }
-    .card-shadow {
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+
+    /* TYPOGRAPHY HIERARCHY (Strict 4 Sizes) */
+    .type-xl { font-size: 2.2rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+    .type-lg { font-size: 1.6rem; font-weight: 600; line-height: 1.3; }
+    .type-md { font-size: 1.4rem; font-weight: 500; line-height: 1.4; }
+    .type-sm { font-size: 1.2rem; font-weight: 500; line-height: 1.4; }
+    .type-xs { font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* LAYOUT: SINGLE VIEWPORT DASHBOARD */
+    .app-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      max-width: 1600px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 1.2rem 1.6rem;
+      gap: 1.2rem;
     }
-    .card-shadow-hover:hover {
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-      transform: translateY(-2px);
+
+    /* BLOCK 1 & 2: TOP EXECUTIVE BAR (Z-Pattern Anchor) */
+    .top-bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1.6rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.2rem 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-title-box h1 {
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .brand-tagline {
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    /* KPI METRICS (Non-redundant, High Contrast) */
+    .kpi-group {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      border-left: 2px solid var(--border-light);
+      padding-left: 1.6rem;
+    }
+
+    .kpi-chip {
+      display: flex;
+      flex-direction: column;
+      padding: 0.4rem 1rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+    }
+
+    .kpi-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+
+    .kpi-label {
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* SEARCH & ACTION CONTROL */
+    .search-control {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      width: 280px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 3.2rem 0 1.2rem;
+      font-size: 1.3rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-input:focus {
+      border-color: var(--color-focus);
+      box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
+    }
+
+    .search-shortcut {
+      position: absolute;
+      right: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    /* MAIN CONTENT SPLIT (65/35 Density Optimized) */
+    .dashboard-body {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 1.2rem;
+      flex: 1;
+      min-height: 0; /* Important for inner scroll */
+    }
+
+    /* LEFT COLUMN: 2D FUNCTIONAL BREAKDOWN & CONNECTORS */
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      min-height: 0;
+    }
+
+    .panel-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .panel-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* 2D FLAT COMPOSITION BARS (No 3D, High Clarity) */
+    .composition-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .comp-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .comp-item:hover, .comp-item.active {
+      background: var(--bg-subtle);
+      border-color: var(--border-color);
+    }
+
+    .comp-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .comp-bar-track {
+      height: 6px;
+      background: var(--border-light);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .comp-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    /* CONNECTOR SHORTCUTS */
+    .connector-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .connector-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem 1rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: all 0.15s;
+      min-height: 44px;
+    }
+
+    .connector-btn:hover {
+      background: #E2E8F0;
+      border-color: var(--border-color);
+    }
+
+    /* RIGHT COLUMN: HIGH-DENSITY RESOURCE EXPLORER */
+    .main-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    /* FILTER TABS */
+    .filter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1.4rem;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-color);
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .pill-group {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      padding: 0.4rem 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      cursor: pointer;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s;
+    }
+
+    .filter-pill:hover {
+      background: #E2E8F0;
+      color: var(--text-primary);
+    }
+
+    .filter-pill.active {
+      background: var(--text-primary);
+      color: #FFFFFF;
+      border-color: var(--text-primary);
+    }
+
+    .results-count {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* TABLE CONTAINER WITH FIXED HEADER & CLEAN SCROLL */
+    .table-container {
+      flex: 1;
+      overflow-y: auto;
+      min-height: 0;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 1.3rem;
+    }
+
+    .data-table th {
+      position: sticky;
+      top: 0;
+      background: #F8FAFC;
+      z-index: 10;
+      padding: 0.8rem 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    .data-table td {
+      padding: 0.8rem 1.2rem;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-primary);
+      vertical-align: middle;
+    }
+
+    .data-table tr:hover td {
+      background: #F8FAFC;
+      cursor: pointer;
+    }
+
+    .resource-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+
+    .badge-skool { background: var(--color-skool-bg); color: var(--color-skool); border-color: #FDE68A; }
+    .badge-master { background: var(--color-master-bg); color: var(--color-master); border-color: #BFDBFE; }
+    .badge-prompts { background: var(--color-prompts-bg); color: var(--color-prompts); border-color: #DDD6FE; }
+    .badge-arch { background: var(--color-arch-bg); color: var(--color-arch); border-color: #A7F3D0; }
+
+    .stack-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .stack-tag {
+      font-size: 1.1rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-secondary);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    /* ACTION BUTTONS (44px target touch accessible) */
+    .action-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      justify-content: flex-end;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+      min-height: 32px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .btn-primary {
+      background: var(--text-primary);
+      color: #FFFFFF;
+      border: 1px solid var(--text-primary);
+    }
+    .btn-primary:hover {
+      background: #1E293B;
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-color);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+    }
+
+    /* EMPTY STATE */
+    .empty-state {
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    /* PROGRESSIVE DISCLOSURE MODAL (Bloque 6: Drill-down) */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-window {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      width: 90%;
+      max-width: 640px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transform: scale(0.98);
+      transition: transform 0.2s ease;
+    }
+
+    .modal-backdrop.open .modal-window {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 1.4rem 1.6rem;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-body {
+      padding: 1.6rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .modal-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .modal-field-label {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .modal-field-value {
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    .modal-footer {
+      padding: 1.2rem 1.6rem;
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .close-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 1.4rem;
+      color: var(--text-secondary);
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      min-height: 32px;
+    }
+    .close-btn:hover {
+      background: #E2E8F0;
+      color: var(--text-primary);
+    }
+
+    /* FOOTER STATUS BAR */
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1.2rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    /* RESPONSIVE MOBILE ADAPTABILITY (Vertical Stack) */
+    @media (max-width: 980px) {
+      body {
+        height: auto;
+        overflow-y: auto;
+      }
+      .app-container {
+        height: auto;
+      }
+      .top-bar {
+        grid-template-columns: 1fr;
+      }
+      .kpi-group {
+        border-left: none;
+        padding-left: 0;
+      }
+      .dashboard-body {
+        grid-template-columns: 1fr;
+      }
+      .table-container {
+        max-height: 480px;
+      }
     }
   </style>
 </head>
-<body class="p-4 md:p-8">
+<body>
 
-<div class="max-w-6xl mx-auto space-y-6">
+<div class="app-container">
 
-  <!-- HEADER -->
-  <header class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 card-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-    <div>
-      <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3">
-        <span>⚡</span> Ecosistema Vibe Coding & IA
+  <!-- ==========================================================================
+       BLOQUE 1 & 2: HEADER EJECUTIVO & KPIS (Z-Pattern Reading Anchor)
+       ========================================================================== -->
+  <header class="top-bar">
+    <div class="brand-section">
+      <div class="brand-title-box">
+        <h1 class="type-xl">
+          <span>⚡</span> VibeStack Studio
+        </h1>
+        <p class="brand-tagline">Directorio Maestro de Arquitectura IA & Vibe Coding</p>
       </div>
-      <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
-        VibeStack Studio
-      </h1>
-      <p class="text-slate-600 text-sm md:text-base mt-1.5 max-w-2xl leading-relaxed">
-        Directorio centralizado con <strong>28 recursos de alta fidelidad</strong>: clases del taller Skool con vídeos sincronizados, guías maestras de Flutter, pipelines de agentes autónomos y catálogos de prompts.
-      </p>
+
+      <!-- Non-Redundant Executive KPIs -->
+      <div class="kpi-group" role="region" aria-label="Métricas Principales">
+        <div class="kpi-chip">
+          <span class="kpi-value" id="kpiTotal">28</span>
+          <span class="kpi-label">Recursos Activos</span>
+        </div>
+        <div class="kpi-chip">
+          <span class="kpi-value" id="kpiVideos">19</span>
+          <span class="kpi-label">Vídeos Skool</span>
+        </div>
+        <div class="kpi-chip">
+          <span class="kpi-value">2.600+</span>
+          <span class="kpi-label">Prompts & Skills</span>
+        </div>
+        <div class="kpi-chip" style="border-color: #A7F3D0; background: #ECFDF5;">
+          <span class="kpi-value" style="color: #059669;">✓ 100%</span>
+          <span class="kpi-label" style="color: #047857;">Offline Ready</span>
+        </div>
+      </div>
     </div>
-    
-    <div class="flex flex-wrap gap-2 w-full md:w-auto">
-      <a href="#cardsView" onclick="switchTab('cardsView')" class="px-4 py-2.5 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold rounded-xl transition shadow-sm flex items-center gap-2">
-        <span>🎴</span> Ver Tarjetas
-      </a>
-      <a href="#masterTableView" onclick="switchTab('masterTableView')" class="px-4 py-2.5 bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold rounded-xl transition flex items-center gap-2">
-        <span>📋</span> Tabla Maestra
-      </a>
+
+    <!-- Universal Real-time Search -->
+    <div class="search-control">
+      <div class="search-input-wrapper">
+        <input 
+          type="text" 
+          id="globalSearchInput" 
+          class="search-input" 
+          placeholder="Filtrar por stack, título, clase..." 
+          aria-label="Buscar en el catálogo"
+        />
+        <span class="search-shortcut" title="Presiona / para buscar">/</span>
+      </div>
     </div>
   </header>
 
-  <!-- STATS -->
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <div class="bg-white border border-slate-200 rounded-xl p-4 card-shadow text-center">
-      <div class="text-2xl md:text-3xl font-bold text-blue-600">28</div>
-      <div class="text-xs text-slate-500 font-medium mt-0.5">Recursos & Guías</div>
-    </div>
-    <div class="bg-white border border-slate-200 rounded-xl p-4 card-shadow text-center">
-      <div class="text-2xl md:text-3xl font-bold text-emerald-600">19</div>
-      <div class="text-xs text-slate-500 font-medium mt-0.5">Vídeos Mapeados</div>
-    </div>
-    <div class="bg-white border border-slate-200 rounded-xl p-4 card-shadow text-center">
-      <div class="text-2xl md:text-3xl font-bold text-purple-600">2.600+</div>
-      <div class="text-xs text-slate-500 font-medium mt-0.5">Skills & Prompts</div>
-    </div>
-    <div class="bg-white border border-slate-200 rounded-xl p-4 card-shadow text-center">
-      <div class="text-2xl md:text-3xl font-bold text-amber-600">100%</div>
-      <div class="text-xs text-slate-500 font-medium mt-0.5">Offline & Funcional</div>
-    </div>
-  </div>
-
-  <!-- NAVIGATION TABS -->
-  <div class="bg-slate-200/80 p-1 rounded-xl flex gap-1 overflow-x-auto text-xs md:text-sm font-medium">
-    <button id="tabBtn_cards" onclick="switchTab('cardsView')" class="tab-btn active flex-1 py-2.5 px-4 rounded-lg bg-white text-slate-900 font-semibold shadow-sm transition whitespace-nowrap text-center">
-      🎴 Vista Tarjetas (28)
-    </button>
-    <button id="tabBtn_table" onclick="switchTab('masterTableView')" class="tab-btn flex-1 py-2.5 px-4 rounded-lg text-slate-600 hover:text-slate-900 transition whitespace-nowrap text-center">
-      📋 Tabla Maestra (README)
-    </button>
-    <button id="tabBtn_notion" onclick="switchTab('notionView')" class="tab-btn flex-1 py-2.5 px-4 rounded-lg text-slate-600 hover:text-slate-900 transition whitespace-nowrap text-center">
-      ⚡ Guía Notion
-    </button>
-    <button id="tabBtn_tools" onclick="switchTab('toolsView')" class="tab-btn flex-1 py-2.5 px-4 rounded-lg text-slate-600 hover:text-slate-900 transition whitespace-nowrap text-center">
-      🧰 Directorio de Herramientas
-    </button>
-  </div>
-
-  <!-- TAB 1: CARDS VIEW -->
-  <div id="cardsView" class="tab-content space-y-6">
+  <!-- ==========================================================================
+       DASHBOARD BODY (65/35 Density Split)
+       ========================================================================== -->
+  <main class="dashboard-body">
     
-    <!-- SEARCH & FILTER -->
-    <div class="bg-white border border-slate-200 rounded-2xl p-4 card-shadow space-y-3">
-      <div class="relative">
-        <span class="absolute left-3.5 top-3 text-slate-400 text-sm">🔍</span>
-        <input type="text" id="cardSearchInput" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl pl-10 pr-10 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition" placeholder="Buscar por título, stack (Flutter, Supabase, n8n, Claude, Remotion, AI Studio)...">
-        <span class="absolute right-3.5 top-2.5 text-xs font-mono text-slate-400 bg-slate-200/60 px-1.5 py-0.5 rounded">/</span>
-      </div>
-
-      <div class="flex gap-1.5 flex-wrap" id="filterPills">
-        <button class="cat-btn active px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 border border-blue-200 text-blue-700 transition" data-filter="all">Todos (28)</button>
-        <button class="cat-btn px-3 py-1 rounded-full text-xs font-medium bg-slate-100 border border-slate-200 text-slate-600 hover:bg-slate-200 transition" data-filter="skool">Clases Skool (13)</button>
-        <button class="cat-btn px-3 py-1 rounded-full text-xs font-medium bg-slate-100 border border-slate-200 text-slate-600 hover:bg-slate-200 transition" data-filter="master">Guías Maestras (8)</button>
-        <button class="cat-btn px-3 py-1 rounded-full text-xs font-medium bg-slate-100 border border-slate-200 text-slate-600 hover:bg-slate-200 transition" data-filter="prompts">Prompts & Skills (4)</button>
-        <button class="cat-btn px-3 py-1 rounded-full text-xs font-medium bg-slate-100 border border-slate-200 text-slate-600 hover:bg-slate-200 transition" data-filter="architecture">Arquitectura & Agentes (3)</button>
-      </div>
-    </div>
-
-    <!-- CARDS GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="cardsGrid">
+    <!-- BLOQUE 3 & 5: PANEL LATERAL DE DISTRIBUCIÓN 2D & CONECTORES -->
+    <aside class="left-panel">
       
-      <!-- Card 1: Camarero Virtual -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="camarero virtual ramiro cocina tiempo real ai studio live qr kds restaurante">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-md">CLASE 21</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Camarero Virtual & Cocina en Tiempo Real</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">App para restaurantes con pedidos QR, asistente de voz interactivo y panel KDS en vivo para cocina.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-amber-500 mr-1.5 font-bold">•</span> Pedidos conversacionales con Gemini Live</div>
-            <div><span class="text-amber-500 mr-1.5 font-bold">•</span> Panel KDS con control de comandas</div>
-            <div><span class="text-amber-500 mr-1.5 font-bold">•</span> App ID: <code class="text-amber-700 font-mono bg-amber-50 px-1 py-0.5 rounded">1OEt1XjSZeprvwbFIDtpcB4XCTZwL_xgZ</code></div>
-          </div>
+      <!-- Bloque 3: Matriz de Composición 2D -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <span class="panel-title">Composición del Sistema</span>
+          <span class="type-xs" style="color: var(--text-muted);" id="distTotal">28 Items</span>
         </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Camarero-Virtual-Cocina-Tiempo-Real.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Camarero-Virtual-Cocina-Tiempo-Real.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
+        
+        <div class="composition-list" id="categoryDistribution">
+          <!-- Item Skool -->
+          <div class="comp-item" data-category="skool" onclick="setCategoryFilter('skool')">
+            <div class="comp-row">
+              <span style="color: var(--color-skool);">🎓 Clases Skool</span>
+              <span class="font-mono">13 (46%)</span>
+            </div>
+            <div class="comp-bar-track">
+              <div class="comp-bar-fill" style="width: 46%; background: var(--color-skool);"></div>
+            </div>
+          </div>
+
+          <!-- Item Master -->
+          <div class="comp-item" data-category="master" onclick="setCategoryFilter('master')">
+            <div class="comp-row">
+              <span style="color: var(--color-master);">📘 Guías Maestras</span>
+              <span class="font-mono">8 (29%)</span>
+            </div>
+            <div class="comp-bar-track">
+              <div class="comp-bar-fill" style="width: 29%; background: var(--color-master);"></div>
+            </div>
+          </div>
+
+          <!-- Item Prompts -->
+          <div class="comp-item" data-category="prompts" onclick="setCategoryFilter('prompts')">
+            <div class="comp-row">
+              <span style="color: var(--color-prompts);">⚡ Prompts & MCP</span>
+              <span class="font-mono">4 (14%)</span>
+            </div>
+            <div class="comp-bar-track">
+              <div class="comp-bar-fill" style="width: 14%; background: var(--color-prompts);"></div>
+            </div>
+          </div>
+
+          <!-- Item Arch -->
+          <div class="comp-item" data-category="architecture" onclick="setCategoryFilter('architecture')">
+            <div class="comp-row">
+              <span style="color: var(--color-arch);">🏛️ Arquitectura IA</span>
+              <span class="font-mono">3 (11%)</span>
+            </div>
+            <div class="comp-bar-track">
+              <div class="comp-bar-fill" style="width: 11%; background: var(--color-arch);"></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Card 2: FYZON Recruitment -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="fyzon recruitment talento n8n specialist google ai studio test seleccion">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-orange-700 bg-orange-50 border border-orange-200 px-2.5 py-0.5 rounded-md">CLASE 19</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">FYZON Recruitment: Filtrado de Talento</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Sistema de selección y filtrado automático combinando Google AI Studio con n8n y simulador de lógica.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Evaluación tripartita automática</div>
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Test situacional n8n + Grabación de vídeo</div>
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> App ID: <code class="text-orange-700 font-mono bg-orange-50 px-1 py-0.5 rounded">15JQf9xwEKqhqY_iaiIL0g1Fxgxq-0qj2</code></div>
-          </div>
+      <!-- Bloque 5: Conectores y Acceso Directo Ecosistema -->
+      <div class="panel-card" style="flex: 1;">
+        <div class="panel-header">
+          <span class="panel-title">Ecosistema & Herramientas</span>
         </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="FYZON-Recruitment-n8n-Specialist.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="FYZON-Recruitment-n8n-Specialist.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 3: Consultor Web Chat + Voz + PDF -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="consultor web chat voz informe pdf wixyn google ai studio">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md">CLASE 20</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Consultor Web: Chat + Voz + Informe PDF</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Consultoría express multimodal en web con generación automática de informes estratégicos en PDF.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Chat y voz de latencia ultra baja</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Generación automática de informe PDF</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Captura de leads integrado en Wixyn</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Consultor-Web-Chat-Voz-Informe-PDF.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Consultor-Web-Chat-Voz-Informe-PDF.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
+        <div class="connector-grid">
+          <a href="README.html" class="connector-btn" title="Tabla Maestra Completa">
+            <span>📋</span> Tabla Maestra
+          </a>
+          <a href="https://github.com/Tonileblan/vibestack-studio" target="_blank" rel="noopener" class="connector-btn" title="Repositorio en GitHub">
+            <span>🐙</span> GitHub Repo
+          </a>
+          <a href="Claude-Code-Skills-App-Templates.html" class="connector-btn" title="156+ Templates">
+            <span>⚡</span> 156+ Templates
+          </a>
+          <a href="Agentic-Awesome-Skills-Guia-Completa.html" class="connector-btn" title="2474+ MCP Skills">
+            <span>🧰</span> MCP Skills
+          </a>
+          <a href="Remotion-Docs-Guia-Completa.html" class="connector-btn" title="Vídeo Programático">
+            <span>🎬</span> Remotion Docs
+          </a>
+          <a href="Pencil-Frontend-Automatico-IA-Guia-Completa.html" class="connector-btn" title="Pencil Canvas">
+            <span>✏️</span> Pencil Canvas
+          </a>
         </div>
       </div>
 
-      <!-- Card 4: Aplicacion Visagismo Claude Code -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="aplicacion visagismo ia claude code estetica facial informe morfopsicologico">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-purple-700 bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-md">CLASE 22</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Aplicación de Visagismo con Claude Code</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Construcción integral de un asesor facial con reserva, cuestionario, subida guiada de fotos e informe.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Flujo: Reserva, Cuestionario, Fotos, Informe</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Plan de próximas visitas y recomendaciones</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Estructura completa de proyecto Claude Code</div>
-          </div>
+    </aside>
+
+    <!-- BLOQUE 4: EXPLORADOR MAESTRO DE ALTA DENSIDAD -->
+    <section class="main-panel" aria-label="Explorador de Recursos">
+      
+      <!-- Píldoras de Filtro Rápido -->
+      <div class="filter-bar">
+        <div class="pill-group" role="tablist">
+          <button class="filter-pill active" data-cat="all" onclick="setCategoryFilter('all')">
+            Todos (28)
+          </button>
+          <button class="filter-pill" data-cat="skool" onclick="setCategoryFilter('skool')">
+            🎓 Skool (13)
+          </button>
+          <button class="filter-pill" data-cat="master" onclick="setCategoryFilter('master')">
+            📘 Guías (8)
+          </button>
+          <button class="filter-pill" data-cat="prompts" onclick="setCategoryFilter('prompts')">
+            ⚡ Prompts & MCP (4)
+          </button>
+          <button class="filter-pill" data-cat="architecture" onclick="setCategoryFilter('architecture')">
+            🏛️ Arquitectura (3)
+          </button>
         </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Aplicacion-Visagismo-IA-Claude-Code.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Aplicacion-Visagismo-IA-Claude-Code.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
+        <div class="results-count" id="visibleCounter">Mostrando 28 de 28</div>
       </div>
 
-      <!-- Card 5: Forja Consultor -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="forja consultor captador leads lead magnets ia pipeline">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-orange-700 bg-orange-50 border border-orange-200 px-2.5 py-0.5 rounded-md">CLASE 01</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Forja Consultor: Lead Magnets IA</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Pipeline de captación de leads de alto valor que convierte visitantes en clientes potenciales calificados.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Diagnóstico dinámico en 4 etapas</div>
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Generación interactiva de propuestas</div>
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Vídeo: <code class="text-orange-700 font-mono">01 Creando nuestro consultor.mp4</code></div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="forja-consultor-explicacion.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Forja-Consultor-Lead-Magnets-IA.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 6: Reel Engine -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="reel engine guiones virales reels tiktok prompt chaining">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-pink-700 bg-pink-50 border border-pink-200 px-2.5 py-0.5 rounded-md">CLASE 02</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Reel Engine: Guiones Virales</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Sistema de prompts encadenados para producir guiones de alta retención para Instagram Reels y TikTok.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-pink-500 mr-1.5 font-bold">•</span> Estructura Gancho / Retención / CTA</div>
-            <div><span class="text-pink-500 mr-1.5 font-bold">•</span> Adaptación por nicho y arquetipos</div>
-            <div><span class="text-pink-500 mr-1.5 font-bold">•</span> Vídeo: <code class="text-pink-700 font-mono">02 Reel Engine.mp4</code></div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="forja-reel-engine-explicacion.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Reel-Engine-Sistema-Reels-IA.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 7: Forja Reel Editor -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="forja reel editor video remotion react subtitulos edicion">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">CLASE 03</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Forja Reel Editor: Edición con Remotion</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Entorno de producción de vídeo programático con React y Remotion para subtítulos y transiciones dinámicas.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Renderizado programático a 60fps</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Subtitulado dinámico palabra por palabra</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Vídeo: <code class="text-emerald-700 font-mono">03 Como hacer tu propio editor.mp4</code></div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="reel-edita-explicacion.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Forja-Reel-Editor-Videos-IA.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 8: Claude + Obsidian -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="claude obsidian segundo cerebro zettelkasten notas base conocimiento">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-purple-700 bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-md">CLASE 04</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Claude + Obsidian: Segundo Cerebro</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Conexión de Claude con tus bóvedas de Obsidian para clasificar, conectar y sintetizar notas automáticamente.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Metodología Zettelkasten y enlaces mutuos</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Resúmenes ejecutivos e ideas clave</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Vídeo: <code class="text-purple-700 font-mono">04 Como conectar con obsidian.mp4</code></div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="claude-obsidian-segundo-cerebro.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Claude-Obsidian-Segundo-Cerebro-Guia.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 9: Gemma 4 IA Local -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="gemma 4 ollama ia local agentes modelos lenguaje privacidad">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md">CLASE 05</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Gemma 4: IA Local con Ollama</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Ejecuta modelos abiertos en tu propia máquina con Ollama para dotar de inteligencia a tus agentes sin coste.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Privacidad total y 0€ de coste por token</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Integración en flujos de Vibe Coding</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Vídeo: <code class="text-blue-700 font-mono">05 Modelo de IA en local.mp4</code></div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="gemma4-guia-completa.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Gemma4-IA-Local-Para-Tus-Agentes.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 10: OpenCode Swarm -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="opencode swarm agentes paralelos cli terminal desarrollo">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">CLASE 06</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">OpenCode Swarm de Agentes</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Orquestación de enjambres de agentes de desarrollo en consola que resuelven tareas en paralelo.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Descomposición autónoma de épicas</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Consolidación de ramas y testing</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Vídeo: <code class="text-emerald-700 font-mono">06 Como usar los agentes.mp4</code></div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="OpenCode-Swarm-Avanzado-Guia-Completa.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="OpenCode-Swarm-Avanzado-Guia-Completa.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 11: De n8n a App Web Ticketing -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="de n8n a app web ticketing supabase postgresql webhooks">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md">CLASE 14</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">De n8n a App Web: Ticketing Supabase</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Migración de flujos de n8n a una plataforma web moderna con base de datos relacional Supabase.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Esquema relacional con Row-Level Security</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Sincronización en tiempo real vía webhooks</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Vídeo: <code class="text-blue-700 font-mono">14 De n8n a una app web.mp4</code></div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="De-N8N-a-App-Web-Ticketing-Supabase.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="De-N8N-a-App-Web-Ticketing-Supabase.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 12: Antigravity PRO -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="antigravity pro agentes bien estructurados rules skills mcp">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-purple-700 bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-md">CLASE 16</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Antigravity PRO: Estructura de Agentes</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Arquitectura de agentes con reglas modulares, skills especializados y control de contexto determinista.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Carpetas <code class="text-purple-700 font-mono bg-purple-50 px-1 py-0.5 rounded">skills/</code> y <code class="text-purple-700 font-mono bg-purple-50 px-1 py-0.5 rounded">rules/</code></div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Servidores MCP y subagentes</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Vídeo: <code class="text-purple-700 font-mono">16 Estructurando tus agentes.mp4</code></div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Antigravity-PRO-Agentes-Bien-Estructurados.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Antigravity-PRO-Agentes-Bien-Estructurados.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 13: Portfolio de Activos -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="portfolio activos tiempo real finanzas criptos acciones dashboard">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">CLASE 17</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Portfolio de Activos en Tiempo Real</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Dashboard financiero interactivo que monitoriza criptomonedas, acciones y ETFs con cotizaciones en vivo.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> APIs bursátiles en tiempo real</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Rendimiento y balances históricos</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Vídeo: <code class="text-emerald-700 font-mono">17 Panel de control criptos.mp4</code></div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Portfolio-Activos-Tiempo-Real-Dashboard.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Portfolio-Activos-Tiempo-Real-Dashboard.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 14: Idea a App Flutter -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="master" data-search="idea a app flutter nativa mobile ios android riverpod supabase">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md">GUÍA 01</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Guía Maestra</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">De Idea Conceptual a App Flutter</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Metodología paso a paso para convertir ideas en aplicaciones nativas multiplataforma (iOS y Android).</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Arquitectura limpia de capas (Data, Domain, Presentation)</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> State Management con Riverpod & Supabase Auth</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Integración con Claude Code y Antigravity</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Guia-Maestra-Idea-a-App-Flutter.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Guia-Maestra-Idea-a-App-Flutter.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 15: Web a App Flutter -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="master" data-search="web a app flutter responsive mobile migracion dom widgets">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md">GUÍA 02</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Guía Maestra</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">De Web a App Nativa Flutter</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Estrategias y patrones para portar aplicaciones web existentes a código Flutter nativo reutilizando lógica.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Mapeo de componentes HTML a Widgets Flutter</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Persistencia offline con base de datos Hive</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Notificaciones push nativas con FCM</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Guia-Maestra-Web-a-App-Flutter.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Guia-Maestra-Web-a-App-Flutter.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 16: eCommerce a App Flutter -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="master" data-search="ecommerce web app flutter tienda pagos stripe apple google pay">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">GUÍA 03</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Guía Maestra</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">De eCommerce Web a App Flutter</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Guía exhaustiva para crear tiendas móviles con checkout nativo, pasarela Stripe y catálogo reactivo.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Catálogo con caché inteligente e imágenes lazy</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Pasarelas Apple Pay, Google Pay y Stripe</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Métricas de conversión y analítica móvil</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Guia-Maestra-Ecommerce-a-App-Flutter.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Guia-Maestra-Ecommerce-a-App-Flutter.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 17: Cerebro Digital -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="architecture" data-search="arquitectura ecosistema ia cerebro digital obsidian rag supabase claude">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-purple-700 bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-md">ARQ 01</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Arquitectura</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Ecosistema IA: El Cerebro Digital</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Blueprint del sistema de memoria centralizada que interconecta todos tus proyectos, agentes y bases de datos.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Capas de Ingesta, Procesamiento y Entrega</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Vector Stores y Búsqueda Híbrida RAG</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Sincronización entre Obsidian, Supabase y Claude</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Arquitectura-Ecosistema-IA-El-Cerebro-Digital.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Arquitectura-Ecosistema-IA-El-Cerebro-Digital.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 18: Antigravity + Stitch -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="architecture" data-search="orquestacion web antigravity stitch nemo gemini ui prototipado">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md">ARQ 02</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Arquitectura</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Orquestación con Antigravity & Stitch</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Flujo de trabajo para prototipar interfaces visualmente con Google Stitch e integrarlas en Antigravity IDE.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Generación visual con Gemini 2.5 Flash</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Importación a React / Tailwind CSS</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Sincronización en caliente de diseño y código</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Guia-Maestra-Orquestacion-Web-Antigravity-Stitch.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Guia-Maestra-Orquestacion-Web-Antigravity-Stitch.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 19: Fabrica de Contenido -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="master" data-search="fabrica contenido idea video remotion react elevenlabs pipeline">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-pink-700 bg-pink-50 border border-pink-200 px-2.5 py-0.5 rounded-md">GUÍA 04</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Guía Maestra</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Fábrica de Contenido: De Idea a Vídeo</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Pipeline end-to-end para crear guiones, locuciones con IA y renderizar vídeos virales en lote con Remotion.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-pink-500 mr-1.5 font-bold">•</span> Locución con ElevenLabs y sincronización</div>
-            <div><span class="text-pink-500 mr-1.5 font-bold">•</span> Subtitulado automatizado dinámico</div>
-            <div><span class="text-pink-500 mr-1.5 font-bold">•</span> Renderizado en lote vertical (1080x1920)</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Fabrica-de-Contenido-De-Idea-a-Video.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Fabrica-de-Contenido-De-Idea-a-Video.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 20: Remotion Docs -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="master" data-search="remotion docs guia completa video react render animaciones composiciones">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">GUÍA 05</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Guía Maestra</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Documentación Maestra de Remotion</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Manual de referencia para programar animaciones, composiciones y renderizar vídeo con React.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Hooks: useCurrentFrame, interpolate, spring</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Validación de props dinámicas con Zod</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Renderizado serverless en AWS Lambda y Docker</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Remotion-Docs-Guia-Completa.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Remotion-Docs-Guia-Completa.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 21: Remotion Prompts Showcase -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="prompts" data-search="remotion prompts showcase galeria efectos video tipografia">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-pink-700 bg-pink-50 border border-pink-200 px-2.5 py-0.5 rounded-md">PROMPT 01</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Prompts</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Galería & Showcase Remotion</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Colección de prompts listos para usar que generan composiciones de vídeo, barras y tipografías cinéticas.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-pink-500 mr-1.5 font-bold">•</span> Efectos glow, kinetic text y countdowns</div>
-            <div><span class="text-pink-500 mr-1.5 font-bold">•</span> Barras de progreso y métricas animadas</div>
-            <div><span class="text-pink-500 mr-1.5 font-bold">•</span> Plantillas listas para anuncios y reels</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Remotion-Prompts-Showcase-Galeria.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Remotion-Prompts-Showcase-Galeria.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 22: Claude Code 156+ Templates -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="prompts" data-search="claude code skills app templates 156 plantillas prompts catalogo">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-purple-700 bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-md">PROMPT 02</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Prompts</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Claude Code: 156+ App Templates</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Buscador y directorio de 156 plantillas de aplicaciones listas para inicializar con un comando en Claude Code.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Web Apps, SaaS, Dashboards y Mobile</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Prompts de scaffolding listos para copiar</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Configuración para Docker, Supabase y Vite</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Claude-Code-Skills-App-Templates.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Claude-Code-Skills-App-Templates.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 23: Anthropic Official Skills -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="prompts" data-search="anthropic official skills catalogo 19 herramientas mcp claude">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-purple-700 bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-md">PROMPT 03</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Prompts</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Skills Oficiales de Anthropic (19 Skills)</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Guía completa de las 19 habilidades oficiales de Anthropic para Claude con especificación de herramientas MCP.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Parámetros, esquemas y ejemplos</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Integración en Antigravity y Claude Code</div>
-            <div><span class="text-purple-500 mr-1.5 font-bold">•</span> Análisis de datos, visualización y testing</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Anthropic-Official-Skills-Catalogo.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Anthropic-Official-Skills-Catalogo.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 24: Agentic Awesome Skills -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="prompts" data-search="agentic awesome skills 2474 repositorio mcp agentes universal">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">PROMPT 04</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Prompts</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Agentic Awesome Skills (2,474+ Skills)</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">El repositorio más completo con más de 2,474 habilidades y conectores universales para agentes IA.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Conexión con APIs, bases de datos y webs</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Soporte Claude, OpenAI y Gemini</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Auto-descubrimiento dinámico de herramientas</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Agentic-Awesome-Skills-Guia-Completa.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Agentic-Awesome-Skills-Guia-Completa.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 25: Arquitecto Landing Pages -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="master" data-search="arquitecto landing pages prompt maestro conversion copywriting ui ux">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-orange-700 bg-orange-50 border border-orange-200 px-2.5 py-0.5 rounded-md">GUÍA 06</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Guía Maestra</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Arquitecto de Landing Pages</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Prompt estructural para programar páginas de aterrizaje de alta conversión con copywriting persuasivo y componentes UX.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Marco persuasivo PAS (Problema, Agitación, Solución)</div>
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Jerarquía tipográfica y prueba social</div>
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Componentes FAQ, Pricing y Hero</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Arquitecto-de-Landing-Pages-Prompt-Maestro.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Arquitecto-de-Landing-Pages-Prompt-Maestro.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 26: YFinance Guia Maestra -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="master" data-search="yfinance datos financieros python mercados acciones tickers fundamentales">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md">GUÍA 07</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Guía Maestra</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">YFinance: Datos Financieros con Python</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Manual para descargar históricos, balances, opciones e indicadores técnicos con la biblioteca yfinance.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Precios, múltiplos y ratios bursátiles</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Análisis técnico y visualización de gráficos</div>
-            <div><span class="text-emerald-500 mr-1.5 font-bold">•</span> Integración en dashboards web y bots</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="YFinance-Guia-Maestra-Datos-Financieros.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="YFinance-Guia-Maestra-Datos-Financieros.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 27: Pencil Frontend Automatico -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="architecture" data-search="pencil frontend automatico ia canvas diseno .pen react prototipo">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md">ARQ 03</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Arquitectura</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Pencil: Frontend en Canvas con IA</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Prototipado visual en un lienzo infinito que se convierte automáticamente en código frontend React y Tailwind.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Manipulación de archivos nativos <code class="text-blue-700 font-mono bg-blue-50 px-1 py-0.5 rounded">.pen</code></div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Exportación a código React / Tailwind limpio</div>
-            <div><span class="text-blue-500 mr-1.5 font-bold">•</span> Integración con protocolo MCP en Antigravity</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Pencil-Frontend-Automatico-IA-Guia-Completa.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Pencil-Frontend-Automatico-IA-Guia-Completa.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-      <!-- Card 28: Sistema Definitivo de Filtrado -->
-      <div class="project-card bg-white border border-slate-200 rounded-2xl p-5 card-shadow card-shadow-hover transition duration-200 flex flex-col justify-between" data-category="skool" data-search="sistema definitivo filtrar talento ai studio n8n seleccion sheets">
-        <div>
-          <div class="flex justify-between items-center mb-3">
-            <span class="font-mono text-xs font-bold text-orange-700 bg-orange-50 border border-orange-200 px-2.5 py-0.5 rounded-md">CLASE 19 (B)</span>
-            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full font-medium">Taller Skool</span>
-          </div>
-          <h3 class="text-base font-bold text-slate-900 mb-1.5 leading-snug">Sistema Definitivo de Filtrado de Talento</h3>
-          <p class="text-slate-600 text-xs mb-4 leading-relaxed">Pipeline integral de captación y evaluación técnica de candidatos con Google Sheets, n8n y scoring automático.</p>
-          <div class="space-y-1 mb-4 text-xs text-slate-500">
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Registro en tiempo real en Google Sheets</div>
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Envíos de correos según calificación técnica</div>
-            <div><span class="text-orange-500 mr-1.5 font-bold">•</span> Automatización completa de extremo a extremo</div>
-          </div>
-        </div>
-        <div class="flex gap-2 pt-3 border-t border-slate-100">
-          <a href="Sistema-Definitivo-Filtrar-Talento-AI-Studio-n8n.html" class="flex-1 bg-slate-900 text-white hover:bg-slate-800 text-xs font-semibold py-2 rounded-lg text-center transition">Abrir Guía Web</a>
-          <a href="Sistema-Definitivo-Filtrar-Talento-AI-Studio-n8n.md" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-medium px-3 py-2 rounded-lg transition">MD</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- EMPTY SEARCH MESSAGE -->
-    <div id="noResultsMsg" class="hidden text-center py-12 bg-white border border-slate-200 rounded-2xl text-slate-500 card-shadow">
-      <div class="text-2xl mb-1.5">🔍</div>
-      <div class="text-sm font-bold text-slate-800">No se encontraron proyectos</div>
-      <div class="text-xs text-slate-500 mt-0.5">Prueba con otro término de búsqueda o selecciona otra categoría.</div>
-    </div>
-  </div>
-
-  <!-- TAB 2: MASTER TABLE VIEW -->
-  <div id="masterTableView" class="tab-content hidden space-y-6">
-    
-    <!-- Table 1 -->
-    <div class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
-      <div>
-        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-          <span class="text-blue-600">⚡</span> Guías Maestras y Ecosistema de Arquitectura IA (15 Recursos)
-        </h2>
-        <p class="text-xs text-slate-500 mt-0.5">Documentación técnica, patrones de diseño y catálogos de habilidades para agentes.</p>
-      </div>
-      <div class="overflow-x-auto rounded-xl border border-slate-200">
-        <table class="w-full text-left text-xs md:text-sm text-slate-700">
-          <thead class="bg-slate-50 text-xs text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200">
+      <!-- Tabla de Datos 2D -->
+      <div class="table-container">
+        <table class="data-table" id="resourcesTable">
+          <thead>
             <tr>
-              <th class="p-3">Recurso / Guía</th>
-              <th class="p-3">Tipo</th>
-              <th class="p-3">Stack / Tecnologías</th>
-              <th class="p-3">Estado</th>
-              <th class="p-3">Acceso Web</th>
-              <th class="p-3">Markdown</th>
+              <th style="width: 70px;">ID / N°</th>
+              <th>Título del Recurso</th>
+              <th style="width: 140px;">Categoría</th>
+              <th>Stack Tecnológico</th>
+              <th style="width: 110px;">Vídeo Local</th>
+              <th style="width: 140px; text-align: right;">Acciones</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-100">
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">De Idea Conceptual a App Flutter</td>
-              <td class="p-3 text-slate-500">Guía Maestra</td>
-              <td class="p-3 font-mono text-xs text-blue-700">Flutter, Dart, Riverpod, Supabase</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Guia-Maestra-Idea-a-App-Flutter.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Guia-Maestra-Idea-a-App-Flutter.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">De Aplicación Web a App Flutter</td>
-              <td class="p-3 text-slate-500">Guía Maestra</td>
-              <td class="p-3 font-mono text-xs text-blue-700">Flutter, REST, WebView, Push FCM</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Guia-Maestra-Web-a-App-Flutter.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Guia-Maestra-Web-a-App-Flutter.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">De eCommerce Web a App Flutter</td>
-              <td class="p-3 text-slate-500">Guía Maestra</td>
-              <td class="p-3 font-mono text-xs text-blue-700">Flutter, Stripe, GraphQL, Isar DB</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Guia-Maestra-Ecommerce-a-App-Flutter.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Guia-Maestra-Ecommerce-a-App-Flutter.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">Arquitectura Ecosistema IA: Cerebro Digital</td>
-              <td class="p-3 text-slate-500">Arquitectura</td>
-              <td class="p-3 font-mono text-xs text-purple-700">Obsidian, RAG, Claude, Supabase</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Arquitectura-Ecosistema-IA-El-Cerebro-Digital.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Arquitectura-Ecosistema-IA-El-Cerebro-Digital.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">Orquestación Web con Antigravity & Stitch</td>
-              <td class="p-3 text-slate-500">Arquitectura</td>
-              <td class="p-3 font-mono text-xs text-blue-700">Google Stitch, Antigravity, Gemini 2.5</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Guia-Maestra-Orquestacion-Web-Antigravity-Stitch.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Guia-Maestra-Orquestacion-Web-Antigravity-Stitch.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">Fábrica de Contenido: De Idea a Vídeo</td>
-              <td class="p-3 text-slate-500">Pipeline Vídeo</td>
-              <td class="p-3 font-mono text-xs text-pink-700">Remotion, React, ElevenLabs API</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Fabrica-de-Contenido-De-Idea-a-Video.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Fabrica-de-Contenido-De-Idea-a-Video.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">Documentación Maestra de Remotion</td>
-              <td class="p-3 text-slate-500">Manual Vídeo</td>
-              <td class="p-3 font-mono text-xs text-emerald-700">Remotion, React, Web Audio API</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Remotion-Docs-Guia-Completa.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Remotion-Docs-Guia-Completa.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">Galería & Showcase Remotion</td>
-              <td class="p-3 text-slate-500">Showcase</td>
-              <td class="p-3 font-mono text-xs text-pink-700">Remotion Prompts, Efectos Cinéticos</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Remotion-Prompts-Showcase-Galeria.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Remotion-Prompts-Showcase-Galeria.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">Claude Code: 156+ App Templates</td>
-              <td class="p-3 text-slate-500">Catálogo Prompts</td>
-              <td class="p-3 font-mono text-xs text-purple-700">Claude Code, React, Vite, Next.js</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Claude-Code-Skills-App-Templates.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Claude-Code-Skills-App-Templates.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">Anthropic Official Skills (19 Skills)</td>
-              <td class="p-3 text-slate-500">Herramientas MCP</td>
-              <td class="p-3 font-mono text-xs text-purple-700">Claude MCP, JSON Tool Calling</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Anthropic-Official-Skills-Catalogo.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Anthropic-Official-Skills-Catalogo.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">Agentic Awesome Skills (2,474+ Skills)</td>
-              <td class="p-3 text-slate-500">Directorio MCP</td>
-              <td class="p-3 font-mono text-xs text-emerald-700">Universal Agent Connectors</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Agentic-Awesome-Skills-Guia-Completa.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Agentic-Awesome-Skills-Guia-Completa.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">Arquitecto de Landing Pages</td>
-              <td class="p-3 text-slate-500">Prompt Maestro</td>
-              <td class="p-3 font-mono text-xs text-orange-700">Copywriting PAS, HTML5/CSS3, UX</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Arquitecto-de-Landing-Pages-Prompt-Maestro.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Arquitecto-de-Landing-Pages-Prompt-Maestro.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">YFinance: Guía Maestra de Finanzas</td>
-              <td class="p-3 text-slate-500">Finanzas Python</td>
-              <td class="p-3 font-mono text-xs text-emerald-700">yfinance, pandas, Matplotlib</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="YFinance-Guia-Maestra-Datos-Financieros.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="YFinance-Guia-Maestra-Datos-Financieros.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">Pencil: Frontend Automático en Canvas</td>
-              <td class="p-3 text-slate-500">Diseño Canvas</td>
-              <td class="p-3 font-mono text-xs text-blue-700">Pencil dev, .pen Canvas, React</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="Pencil-Frontend-Automatico-IA-Guia-Completa.md" class="text-blue-600 hover:text-blue-800 font-semibold">Ver MD</a></td>
-              <td class="p-3"><a href="Pencil-Frontend-Automatico-IA-Guia-Completa.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-semibold text-slate-900">OpenCode Swarm Avanzado</td>
-              <td class="p-3 text-slate-500">Agentes CLI</td>
-              <td class="p-3 font-mono text-xs text-emerald-700">OpenCode, Subagentes Paralelos</td>
-              <td class="p-3"><span class="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Completo</span></td>
-              <td class="p-3"><a href="OpenCode-Swarm-Avanzado-Guia-Completa.md" class="text-blue-600 hover:text-blue-800 font-semibold">Ver MD</a></td>
-              <td class="p-3"><a href="OpenCode-Swarm-Avanzado-Guia-Completa.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
+          <tbody id="tableBody">
+            <!-- Filas generadas dinámicamente por JS -->
           </tbody>
         </table>
+
+        <!-- Empty State -->
+        <div id="noDataState" class="empty-state" style="display: none;">
+          <div style="font-size: 2.4rem; margin-bottom: 0.8rem;">🔍</div>
+          <p class="type-lg" style="color: var(--text-primary); margin-bottom: 0.4rem;">No se encontraron coincidencias</p>
+          <p class="type-sm">Intenta buscar por otro término o limpia los filtros activos.</p>
+        </div>
       </div>
+
+    </section>
+
+  </main>
+
+  <!-- STATUS BAR -->
+  <footer class="status-bar">
+    <div>
+      <span>⚡ <strong>VibeStack Studio</strong> • Antigravity Clean Architecture & SDD</span>
     </div>
-
-    <!-- Table 2: Skool Lessons -->
-    <div class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-4">
-      <div>
-        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-          <span class="text-orange-600">🎓</span> Clases del Taller Skool y Mapeo de Vídeos (13 Clases - 19 Videos)
-        </h2>
-        <p class="text-xs text-slate-500 mt-0.5">Lecciones prácticas estructuradas con archivos fuente y vídeos locales asociados.</p>
-      </div>
-      <div class="overflow-x-auto rounded-xl border border-slate-200">
-        <table class="w-full text-left text-xs md:text-sm text-slate-700">
-          <thead class="bg-slate-50 text-xs text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200">
-            <tr>
-              <th class="p-3">Nº</th>
-              <th class="p-3">Nombre del Proyecto / Lección</th>
-              <th class="p-3">Tecnologías Clave</th>
-              <th class="p-3">Vídeo Local en Descargas</th>
-              <th class="p-3">Guía Web (.html)</th>
-              <th class="p-3">Markdown (.md)</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-100">
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">01</td>
-              <td class="p-3 font-semibold text-slate-900">Forja Consultor (Lead Magnets IA)</td>
-              <td class="p-3 text-xs text-slate-500">Vibe Coding, HTML5/JS, CRM</td>
-              <td class="p-3 font-mono text-xs text-slate-600">01 Creando nuestro consultor.mp4</td>
-              <td class="p-3"><a href="forja-consultor-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Forja-Consultor-Lead-Magnets-IA.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">02</td>
-              <td class="p-3 font-semibold text-slate-900">Reel Engine (Guiones Virales)</td>
-              <td class="p-3 text-xs text-slate-500">IA Generativa, Prompt Chaining</td>
-              <td class="p-3 font-mono text-xs text-slate-600">02 Reel Engine.mp4</td>
-              <td class="p-3"><a href="forja-reel-engine-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Reel-Engine-Sistema-Reels-IA.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">03</td>
-              <td class="p-3 font-semibold text-slate-900">Forja Reel Editor (Edición con Remotion)</td>
-              <td class="p-3 text-xs text-slate-500">Remotion, React, Web Audio</td>
-              <td class="p-3 font-mono text-xs text-slate-600">03 Como hacer tu propio editor de video.mp4</td>
-              <td class="p-3"><a href="reel-edita-explicacion.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Forja-Reel-Editor-Videos-IA.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">04</td>
-              <td class="p-3 font-semibold text-slate-900">Claude + Obsidian (Segundo Cerebro)</td>
-              <td class="p-3 text-xs text-slate-500">Obsidian, Claude, Zettelkasten</td>
-              <td class="p-3 font-mono text-xs text-slate-600">04 Como conectar con obsidian.mp4</td>
-              <td class="p-3"><a href="claude-obsidian-segundo-cerebro.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Claude-Obsidian-Segundo-Cerebro-Guia.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">05</td>
-              <td class="p-3 font-semibold text-slate-900">Gemma 4: IA Local con Ollama</td>
-              <td class="p-3 text-xs text-slate-500">Ollama, Gemma 4, Local LLM</td>
-              <td class="p-3 font-mono text-xs text-slate-600">05 Como tener tu propio modelo de IA.mp4</td>
-              <td class="p-3"><a href="gemma4-guia-completa.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Gemma4-IA-Local-Para-Tus-Agentes.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">06</td>
-              <td class="p-3 font-semibold text-slate-900">OpenCode Swarm de Agentes</td>
-              <td class="p-3 text-xs text-slate-500">CLI, Agentes en Paralelo</td>
-              <td class="p-3 font-mono text-xs text-slate-600">06 Como usar los agentes de opencode.mp4</td>
-              <td class="p-3"><a href="OpenCode-Swarm-Avanzado-Guia-Completa.md" class="text-blue-600 hover:text-blue-800 font-semibold">Ver MD</a></td>
-              <td class="p-3"><a href="OpenCode-Swarm-Avanzado-Guia-Completa.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">14</td>
-              <td class="p-3 font-semibold text-slate-900">De n8n a App Web (Ticketing)</td>
-              <td class="p-3 text-xs text-slate-500">Supabase, PostgreSQL, Webhooks</td>
-              <td class="p-3 font-mono text-xs text-slate-600">14 De n8n a una app web.mp4</td>
-              <td class="p-3"><a href="De-N8N-a-App-Web-Ticketing-Supabase.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="De-N8N-a-App-Web-Ticketing-Supabase.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">16</td>
-              <td class="p-3 font-semibold text-slate-900">Antigravity PRO (Estructura Agentes)</td>
-              <td class="p-3 text-xs text-slate-500">MCP, Antigravity Rules & Skills</td>
-              <td class="p-3 font-mono text-xs text-slate-600">16 Estructurando tus agentes.mp4</td>
-              <td class="p-3"><a href="Antigravity-PRO-Agentes-Bien-Estructurados.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Antigravity-PRO-Agentes-Bien-Estructurados.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">17</td>
-              <td class="p-3 font-semibold text-slate-900">Portfolio de Activos en Tiempo Real</td>
-              <td class="p-3 text-xs text-slate-500">APIs Financieras, Dashboard React</td>
-              <td class="p-3 font-mono text-xs text-slate-600">17 Panel de control criptos y acciones.mp4</td>
-              <td class="p-3"><a href="Portfolio-Activos-Tiempo-Real-Dashboard.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Portfolio-Activos-Tiempo-Real-Dashboard.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">19</td>
-              <td class="p-3 font-semibold text-slate-900">FYZON Recruitment / Filtrado Talento</td>
-              <td class="p-3 text-xs text-slate-500">Google AI Studio, n8n, Sheets</td>
-              <td class="p-3 font-mono text-xs text-slate-600">19 El sistema definitivo para filtrar talento.mp4</td>
-              <td class="p-3"><a href="FYZON-Recruitment-n8n-Specialist.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="FYZON-Recruitment-n8n-Specialist.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">20</td>
-              <td class="p-3 font-semibold text-slate-900">Consultor Web: Chat + Voz + PDF</td>
-              <td class="p-3 text-xs text-slate-500">AI Studio, Multimodal, Wixyn</td>
-              <td class="p-3 font-mono text-xs text-slate-600">20 Consultor Web Chat + Voz + PDF.mp4</td>
-              <td class="p-3"><a href="Consultor-Web-Chat-Voz-Informe-PDF.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Consultor-Web-Chat-Voz-Informe-PDF.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">21</td>
-              <td class="p-3 font-semibold text-slate-900">Camarero Virtual & Cocina Tiempo Real</td>
-              <td class="p-3 text-xs text-slate-500">AI Studio Live Session, KDS QR</td>
-              <td class="p-3 font-mono text-xs text-slate-600">21 Camarero virtual y cocina tiempo real.mp4</td>
-              <td class="p-3"><a href="Camarero-Virtual-Cocina-Tiempo-Real.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Camarero-Virtual-Cocina-Tiempo-Real.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-            <tr class="hover:bg-slate-50/80 transition">
-              <td class="p-3 font-bold font-mono text-orange-600">22</td>
-              <td class="p-3 font-semibold text-slate-900">Aplicación de Visagismo con IA</td>
-              <td class="p-3 text-xs text-slate-500">Claude Code, Análisis Facial</td>
-              <td class="p-3 font-mono text-xs text-slate-600">22 Asi construi una aplicacion de visagismo.mp4</td>
-              <td class="p-3"><a href="Aplicacion-Visagismo-IA-Claude-Code.html" class="text-blue-600 hover:text-blue-800 font-semibold">Abrir Web</a></td>
-              <td class="p-3"><a href="Aplicacion-Visagismo-IA-Claude-Code.md" class="text-slate-500 hover:text-slate-900 font-mono text-xs">Ver MD</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="font-mono">
+      <span>Ruta Local: /Users/toni/Proyectos/Vibe-Coding/</span>
     </div>
-  </div>
-
-  <!-- TAB 3: NOTION DUPLICATION GUIDE -->
-  <div id="notionView" class="tab-content hidden space-y-6">
-    <div class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-6">
-      <div class="border-b border-slate-100 pb-4">
-        <span class="font-mono text-xs text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md font-bold">⚡ TUTORIAL DE DUPLICACIÓN EN NOTION</span>
-        <h2 class="text-lg font-bold text-slate-900 mt-2">Cómo Duplicar e Integrar la Base de Conocimiento en Notion</h2>
-        <p class="text-xs text-slate-500 mt-0.5">Sigue estos 4 pasos para mantener tu workspace de Notion 100% sincronizado con tu entorno de desarrollo.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
-          <div class="text-blue-700 font-bold font-mono text-xs mb-1">PASO 1</div>
-          <h3 class="text-sm font-bold text-slate-900 mb-1.5">Duplicar la Plantilla</h3>
-          <p class="text-slate-600 text-xs leading-relaxed">Abre el enlace de la base de datos maestra en Notion y haz clic en el botón superior derecho <strong>"Duplicar"</strong> (o <em>Duplicate</em>) para clonarla en tu espacio personal o de equipo.</p>
-        </div>
-
-        <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
-          <div class="text-orange-700 font-bold font-mono text-xs mb-1">PASO 2</div>
-          <h3 class="text-sm font-bold text-slate-900 mb-1.5">Configuración de Propiedades</h3>
-          <p class="text-slate-600 text-xs leading-relaxed">Configura las propiedades de <strong>Categoría</strong>, <strong>Estado</strong>, <strong>Tecnologías</strong> y vincula las rutas de los archivos locales en la columna de Documentación.</p>
-        </div>
-
-        <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
-          <div class="text-purple-700 font-bold font-mono text-xs mb-1">PASO 3</div>
-          <h3 class="text-sm font-bold text-slate-900 mb-1.5">Conexión con Obsidian & Claude</h3>
-          <p class="text-slate-600 text-xs leading-relaxed">Apunta tus notas locales a <code>/Users/toni/Proyectos/Vibe-Coding/</code> para mantener sincronizados los documentos Markdown con tus agentes de IA.</p>
-        </div>
-
-        <div class="border border-slate-200 rounded-xl p-5 bg-slate-50/50">
-          <div class="text-emerald-700 font-bold font-mono text-xs mb-1">PASO 4</div>
-          <h3 class="text-sm font-bold text-slate-900 mb-1.5">Automatización con Webhooks n8n</h3>
-          <p class="text-slate-600 text-xs leading-relaxed">Dispara webhooks en n8n al completar nuevas clases o proyectos para actualizar automáticamente las métricas de tu dashboard en Notion.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB 4: TOOLS DIRECTORY -->
-  <div id="toolsView" class="tab-content hidden space-y-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-      
-      <div class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-3">
-        <div class="flex items-center gap-2.5">
-          <span class="text-2xl">🧠</span>
-          <h3 class="text-base font-bold text-slate-900">Google AI Studio & Gemini Live</h3>
-        </div>
-        <p class="text-slate-600 text-xs leading-relaxed">Entorno de prototipado rápido con Gemini 1.5 Pro y Flash. Permite generar aplicaciones completas con IDs compartibles y voz multimodal en tiempo real.</p>
-        <div class="flex gap-1.5 flex-wrap pt-2">
-          <span class="px-2.5 py-0.5 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold rounded-md">Gemini 1.5 Pro</span>
-          <span class="px-2.5 py-0.5 bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold rounded-md">Live Session WebSockets</span>
-        </div>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-3">
-        <div class="flex items-center gap-2.5">
-          <span class="text-2xl">⚡</span>
-          <h3 class="text-base font-bold text-slate-900">Antigravity IDE & MCP</h3>
-        </div>
-        <p class="text-slate-600 text-xs leading-relaxed">Plataforma de desarrollo guiada por agentes autónomos, soporte para el protocolo Model Context Protocol (MCP), subagentes especializados y reglas contextuales.</p>
-        <div class="flex gap-1.5 flex-wrap pt-2">
-          <span class="px-2.5 py-0.5 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold rounded-md">MCP Protocol</span>
-          <span class="px-2.5 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">Rules & Skills</span>
-        </div>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-3">
-        <div class="flex items-center gap-2.5">
-          <span class="text-2xl">🗄️</span>
-          <h3 class="text-base font-bold text-slate-900">Supabase & PostgreSQL</h3>
-        </div>
-        <p class="text-slate-600 text-xs leading-relaxed">Backend relacional moderno con Row-Level Security (RLS), funciones Edge, autenticación OAuth y replicación en tiempo real para web y mobile.</p>
-        <div class="flex gap-1.5 flex-wrap pt-2">
-          <span class="px-2.5 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold rounded-md">PostgreSQL</span>
-          <span class="px-2.5 py-0.5 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold rounded-md">Realtime Webhooks</span>
-        </div>
-      </div>
-
-      <div class="bg-white border border-slate-200 rounded-2xl p-6 card-shadow space-y-3">
-        <div class="flex items-center gap-2.5">
-          <span class="text-2xl">🎬</span>
-          <h3 class="text-base font-bold text-slate-900">Remotion & React Video</h3>
-        </div>
-        <p class="text-slate-600 text-xs leading-relaxed">Generación y renderizado de vídeo programático con React. Animaciones por fotograma, subtitulado sincronizado y renderizado en la nube.</p>
-        <div class="flex gap-1.5 flex-wrap pt-2">
-          <span class="px-2.5 py-0.5 bg-pink-50 border border-pink-200 text-pink-700 text-xs font-semibold rounded-md">React Compositor</span>
-          <span class="px-2.5 py-0.5 bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold rounded-md">Web Audio</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="pt-6 border-t border-slate-200 text-center text-slate-500 text-xs space-y-1">
-    <p><strong>VibeStack Studio</strong> • Ecosistema Vibe Coding & IA • Toni Leblan & Antigravity IDE</p>
-    <p class="font-mono text-slate-400">Sincronizado: /Users/toni/Proyectos/Vibe-Coding/ y /Users/toni/Downloads/Vibe Coding-Proyectos/</p>
   </footer>
 
 </div>
 
+<!-- ==========================================================================
+     BLOQUE 6: MODAL DE REVELACIÓN PROGRESIVA (Progressive Disclosure Drawer)
+     ========================================================================== -->
+<div id="detailModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-window">
+    <div class="modal-header">
+      <div style="display: flex; align-items: center; gap: 0.8rem;">
+        <span id="modalCategoryBadge" class="category-badge">CATEGORÍA</span>
+        <span id="modalCode" class="font-mono type-xs" style="color: var(--text-muted);">ID-00</span>
+      </div>
+      <button class="close-btn" onclick="closeModal()" aria-label="Cerrar modal">✕ Esc</button>
+    </div>
+
+    <div class="modal-body">
+      <h2 id="modalTitle" class="type-lg" style="color: var(--text-primary);">Título del Recurso</h2>
+      
+      <div class="modal-field">
+        <span class="modal-field-label">Descripción Ejecutiva</span>
+        <p id="modalDesc" class="modal-field-value"></p>
+      </div>
+
+      <div class="modal-field">
+        <span class="modal-field-label">Puntos Clave / Capacidades</span>
+        <ul id="modalBullets" class="modal-field-value" style="padding-left: 1.8rem; list-style-type: disc;"></ul>
+      </div>
+
+      <div class="modal-field" id="modalVideoSection">
+        <span class="modal-field-label">Vídeo Asociado (Descargas / Skool)</span>
+        <div id="modalVideo" class="font-mono type-sm" style="background: var(--bg-subtle); padding: 0.6rem 0.8rem; border-radius: 4px; border: 1px solid var(--border-light);"></div>
+      </div>
+
+      <div class="modal-field">
+        <span class="modal-field-label">Stack Tecnológico</span>
+        <div id="modalStack" class="stack-tags" style="margin-top: 0.2rem;"></div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <span class="type-sm" style="color: var(--text-muted);">Acceso Directo al Documento</span>
+      <div class="action-group">
+        <a id="modalHtmlLink" href="#" class="btn-action btn-primary">Abrir Guía Web (.html)</a>
+        <a id="modalMdLink" href="#" class="btn-action btn-secondary">Ver Markdown (.md)</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     DATASET & CORE LOGIC
+     ========================================================================== -->
 <script>
-  // Tab Switching
-  function switchTab(tabId) {
-    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.classList.remove('active', 'bg-white', 'text-slate-900', 'shadow-sm', 'font-semibold');
-      btn.classList.add('text-slate-600');
-    });
-
-    const target = document.getElementById(tabId);
-    if (target) target.classList.remove('hidden');
-
-    const btnMap = {
-      'cardsView': 'tabBtn_cards',
-      'masterTableView': 'tabBtn_table',
-      'notionView': 'tabBtn_notion',
-      'toolsView': 'tabBtn_tools'
-    };
-    
-    const activeBtn = document.getElementById(btnMap[tabId]);
-    if (activeBtn) {
-      activeBtn.classList.add('active', 'bg-white', 'text-slate-900', 'shadow-sm', 'font-semibold');
-      activeBtn.classList.remove('text-slate-600');
+  // Complete 28 Resources Dataset
+  const RESOURCES = [
+    {
+      id: "CLASE-01",
+      code: "CLASE 01",
+      title: "Forja Consultor: Lead Magnets IA",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Pipeline de captación de leads de alto valor que convierte visitantes en clientes potenciales calificados mediante diagnóstico dinámico.",
+      bullets: [
+        "Diagnóstico dinámico en 4 etapas automatizadas",
+        "Generación interactiva de propuestas comerciales",
+        "Integración CRM directa con captura de datos"
+      ],
+      stack: ["HTML5", "JavaScript", "CRM", "Vibe Coding"],
+      video: "01 Creando nuestro consultor.mp4",
+      html: "forja-consultor-explicacion.html",
+      md: "Forja-Consultor-Lead-Magnets-IA.md"
+    },
+    {
+      id: "CLASE-02",
+      code: "CLASE 02",
+      title: "Reel Engine: Guiones Virales",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Sistema de prompts encadenados para producir guiones de alta retención para Instagram Reels y TikTok estructurados por arquetipos.",
+      bullets: [
+        "Estructura probada: Gancho / Retención / Llamada a la Acción (CTA)",
+        "Adaptación por nicho y arquetipos de audiencia",
+        "Pipeline de generación acelerada de guiones en lote"
+      ],
+      stack: ["Prompt Chaining", "IA Generativa", "TikTok", "Reels"],
+      video: "02 Reel Engine.mp4",
+      html: "forja-reel-engine-explicacion.html",
+      md: "Reel-Engine-Sistema-Reels-IA.md"
+    },
+    {
+      id: "CLASE-03",
+      code: "CLASE 03",
+      title: "Forja Reel Editor: Edición con Remotion",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Entorno de producción de vídeo programático con React y Remotion para subtítulos y transiciones dinámicas.",
+      bullets: [
+        "Renderizado programático de composiciones de vídeo a 60fps",
+        "Subtitulado dinámico sincronizado palabra por palabra",
+        "Integración con Web Audio API y transiciones fluidas"
+      ],
+      stack: ["Remotion", "React", "TypeScript", "Web Audio"],
+      video: "03 Como hacer tu propio editor de video.mp4",
+      html: "reel-edita-explicacion.html",
+      md: "Forja-Reel-Editor-Videos-IA.md"
+    },
+    {
+      id: "CLASE-04",
+      code: "CLASE 04",
+      title: "Claude + Obsidian: Segundo Cerebro",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Conexión de Claude con tus bóvedas de Obsidian para clasificar, conectar y sintetizar notas de conocimiento automáticamente.",
+      bullets: [
+        "Metodología Zettelkasten y generación de enlaces bidireccionales",
+        "Extracción automática de resúmenes ejecutivos e ideas clave",
+        "Indexación semántica de base de conocimiento personal"
+      ],
+      stack: ["Obsidian", "Claude", "Markdown", "Zettelkasten"],
+      video: "04 Como conectar con obsidian.mp4",
+      html: "claude-obsidian-segundo-cerebro.html",
+      md: "Claude-Obsidian-Segundo-Cerebro-Guia.md"
+    },
+    {
+      id: "CLASE-05",
+      code: "CLASE 05",
+      title: "Gemma 4: IA Local con Ollama",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Ejecución de modelos abiertos en tu propia máquina con Ollama para dotar de inteligencia a tus agentes sin coste por token ni fugas de datos.",
+      bullets: [
+        "Privacidad total y 0€ de coste operativo por token",
+        "Integración en flujos de trabajo locales y CLI",
+        "Configuración de parámetros de temperatura y contexto"
+      ],
+      stack: ["Ollama", "Gemma 4", "Local LLM", "Privacidad"],
+      video: "05 Como tener tu propio modelo de IA.mp4",
+      html: "gemma4-guia-completa.html",
+      md: "Gemma4-IA-Local-Para-Tus-Agentes.md"
+    },
+    {
+      id: "CLASE-06",
+      code: "CLASE 06",
+      title: "OpenCode Swarm de Agentes",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Orquestación de enjambres de agentes de desarrollo en consola que resuelven tareas complejas en paralelo.",
+      bullets: [
+        "Descomposición autónoma de tareas y épicas",
+        "Consolidación automática de ramas de Git y testing",
+        "Ejecución multi-agente en terminal sin bloqueos"
+      ],
+      stack: ["OpenCode", "CLI", "Multi-Agent", "Git"],
+      video: "06 Como usar los agentes de opencode.mp4",
+      html: "OpenCode-Swarm-Avanzado-Guia-Completa.html",
+      md: "OpenCode-Swarm-Avanzado-Guia-Completa.md"
+    },
+    {
+      id: "CLASE-14",
+      code: "CLASE 14",
+      title: "De n8n a App Web: Ticketing Supabase",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Migración de automatizaciones de n8n a una plataforma web moderna con base de datos relacional Supabase y control de acceso RLS.",
+      bullets: [
+        "Esquema relacional PostgreSQL con Row-Level Security",
+        "Sincronización bidireccional en tiempo real vía Webhooks",
+        "Panel web de gestión de incidencias y tickets"
+      ],
+      stack: ["Supabase", "PostgreSQL", "n8n", "Webhooks", "RLS"],
+      video: "14 De n8n a una app web.mp4",
+      html: "De-N8N-a-App-Web-Ticketing-Supabase.html",
+      md: "De-N8N-a-App-Web-Ticketing-Supabase.md"
+    },
+    {
+      id: "CLASE-16",
+      code: "CLASE 16",
+      title: "Antigravity PRO: Estructura de Agentes",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Arquitectura de agentes con reglas modulares, skills especializados y control de contexto determinista en Antigravity IDE.",
+      bullets: [
+        "Estructuración de carpetas skills/ y rules/ de alta precisión",
+        "Integración de servidores MCP y subagentes dedicados",
+        "Eliminación de degradación de contexto y control de tokens"
+      ],
+      stack: ["Antigravity", "MCP", "Skills", "Rules", "Clean Arch"],
+      video: "16 Estructurando tus agentes.mp4",
+      html: "Antigravity-PRO-Agentes-Bien-Estructurados.html",
+      md: "Antigravity-PRO-Agentes-Bien-Estructurados.md"
+    },
+    {
+      id: "CLASE-17",
+      code: "CLASE 17",
+      title: "Portfolio de Activos en Tiempo Real",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Dashboard financiero interactivo que monitoriza criptomonedas, acciones y ETFs con cotizaciones en vivo y gráficos reactivos.",
+      bullets: [
+        "Conexión con APIs bursátiles y de exchanges en vivo",
+        "Cálculo de balances, rendimiento y métricas de riesgo",
+        "Renderizado de componentes gráficos de alta respuesta"
+      ],
+      stack: ["React", "APIs Financieras", "Chart.js", "Criptos"],
+      video: "17 Panel de control criptos y acciones.mp4",
+      html: "Portfolio-Activos-Tiempo-Real-Dashboard.html",
+      md: "Portfolio-Activos-Tiempo-Real-Dashboard.md"
+    },
+    {
+      id: "CLASE-19",
+      code: "CLASE 19",
+      title: "FYZON Recruitment: Filtrado de Talento",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Sistema de selección y filtrado automático combinando Google AI Studio con n8n y simulador de lógica.",
+      bullets: [
+        "Evaluación tripartita automática de candidatos",
+        "Test situacional n8n con grabación de vídeo",
+        "App ID: 15JQf9xwEKqhqY_iaiIL0g1Fxgxq-0qj2"
+      ],
+      stack: ["Google AI Studio", "n8n", "Evaluación IA", "Sheets"],
+      video: "19 El sistema definitivo para filtrar talento.mp4",
+      html: "FYZON-Recruitment-n8n-Specialist.html",
+      md: "FYZON-Recruitment-n8n-Specialist.md"
+    },
+    {
+      id: "CLASE-19B",
+      code: "CLASE 19B",
+      title: "Sistema Definitivo de Filtrado (Sheets + n8n)",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Pipeline integral de captación y evaluación técnica de candidatos con Google Sheets, n8n y scoring automático.",
+      bullets: [
+        "Registro de respuestas en tiempo real en Google Sheets",
+        "Disparo de correos personalizados según puntuación técnica",
+        "Automatización completa de selección sin intervención manual"
+      ],
+      stack: ["Google Sheets", "n8n", "Scoring", "Automatización"],
+      video: "19 El sistema definitivo para filtrar talento.mp4",
+      html: "Sistema-Definitivo-Filtrar-Talento-AI-Studio-n8n.html",
+      md: "Sistema-Definitivo-Filtrar-Talento-AI-Studio-n8n.md"
+    },
+    {
+      id: "CLASE-20",
+      code: "CLASE 20",
+      title: "Consultor Web: Chat + Voz + Informe PDF",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Consultoría express multimodal en web con generación automática de informes estratégicos descargables en PDF.",
+      bullets: [
+        "Chat de texto y voz bidireccional de latencia ultra baja",
+        "Generación automática en cliente de informe PDF estructurado",
+        "Captura de leads y sincronización con Wixyn CRM"
+      ],
+      stack: ["Google AI Studio", "Voz Multimodal", "PDF Generation", "Wixyn"],
+      video: "20 Consultor Web Chat + Voz + PDF.mp4",
+      html: "Consultor-Web-Chat-Voz-Informe-PDF.html",
+      md: "Consultor-Web-Chat-Voz-Informe-PDF.md"
+    },
+    {
+      id: "CLASE-21",
+      code: "CLASE 21",
+      title: "Camarero Virtual & Cocina en Tiempo Real",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "App para restaurantes con pedidos QR, asistente de voz interactivo y panel KDS en vivo para cocina.",
+      bullets: [
+        "Pedidos conversacionales asistidos por Gemini Live",
+        "Panel KDS interactivo con control de comandas en cocina",
+        "App ID: 1OEt1XjSZeprvwbFIDtpcB4XCTZwL_xgZ"
+      ],
+      stack: ["Gemini Live", "KDS", "QR Code", "Restauración"],
+      video: "21 Camarero virtual y cocina tiempo real.mp4",
+      html: "Camarero-Virtual-Cocina-Tiempo-Real.html",
+      md: "Camarero-Virtual-Cocina-Tiempo-Real.md"
+    },
+    {
+      id: "CLASE-22",
+      code: "CLASE 22",
+      title: "Aplicación de Visagismo con Claude Code",
+      category: "skool",
+      categoryLabel: "🎓 Skool",
+      badgeClass: "badge-skool",
+      desc: "Construcción integral de un asesor facial con reserva, cuestionario, subida guiada de fotos e informe morfopsicológico.",
+      bullets: [
+        "Flujo completo: Reserva, Cuestionario, Análisis de Fotos, Informe",
+        "Plan de próximas visitas y recomendaciones personalizadas",
+        "Estructura modular de proyecto construida con Claude Code"
+      ],
+      stack: ["Claude Code", "Visagismo", "Morfopsicología", "React"],
+      video: "22 Asi construi una aplicacion de visagismo.mp4",
+      html: "Aplicacion-Visagismo-IA-Claude-Code.html",
+      md: "Aplicacion-Visagismo-IA-Claude-Code.md"
+    },
+    {
+      id: "GUIA-01",
+      code: "GUÍA 01",
+      title: "De Idea Conceptual a App Flutter",
+      category: "master",
+      categoryLabel: "📘 Guía",
+      badgeClass: "badge-master",
+      desc: "Metodología paso a paso para convertir ideas en aplicaciones nativas multiplataforma (iOS y Android) con Clean Architecture.",
+      bullets: [
+        "Arquitectura de 3 capas: Domain, Data y Presentation",
+        "Gestión de estado reactivo con Riverpod & Supabase Auth",
+        "Integración continua y despliegue rápido con Claude Code"
+      ],
+      stack: ["Flutter", "Dart", "Riverpod", "Supabase", "Clean Arch"],
+      video: "—",
+      html: "Guia-Maestra-Idea-a-App-Flutter.html",
+      md: "Guia-Maestra-Idea-a-App-Flutter.md"
+    },
+    {
+      id: "GUIA-02",
+      code: "GUÍA 02",
+      title: "De Aplicación Web a App Flutter",
+      category: "master",
+      categoryLabel: "📘 Guía",
+      badgeClass: "badge-master",
+      desc: "Estrategias y patrones para portar aplicaciones web existentes a código Flutter nativo reutilizando lógica de negocio.",
+      bullets: [
+        "Mapeo de componentes del DOM web a Widgets nativos Flutter",
+        "Persistencia offline y caché local con base de datos Hive",
+        "Notificaciones push nativas en segundo plano con FCM"
+      ],
+      stack: ["Flutter", "REST APIs", "WebView", "Push FCM", "Hive"],
+      video: "—",
+      html: "Guia-Maestra-Web-a-App-Flutter.html",
+      md: "Guia-Maestra-Web-a-App-Flutter.md"
+    },
+    {
+      id: "GUIA-03",
+      code: "GUÍA 03",
+      title: "De eCommerce Web a App Flutter",
+      category: "master",
+      categoryLabel: "📘 Guía",
+      badgeClass: "badge-master",
+      desc: "Guía exhaustiva para crear tiendas móviles con checkout nativo, pasarela Stripe y catálogo reactivo sincronizado.",
+      bullets: [
+        "Catálogo de productos con caché inteligente e imágenes lazy",
+        "Pasarelas de pago integradas: Apple Pay, Google Pay y Stripe",
+        "Analítica móvil y métricas de conversión en tiempo real"
+      ],
+      stack: ["Flutter", "Stripe", "GraphQL", "Isar DB", "eCommerce"],
+      video: "—",
+      html: "Guia-Maestra-Ecommerce-a-App-Flutter.html",
+      md: "Guia-Maestra-Ecommerce-a-App-Flutter.md"
+    },
+    {
+      id: "GUIA-04",
+      code: "GUÍA 04",
+      title: "Fábrica de Contenido: De Idea a Vídeo",
+      category: "master",
+      categoryLabel: "📘 Guía",
+      badgeClass: "badge-master",
+      desc: "Pipeline end-to-end para crear guiones, locuciones con IA y renderizar vídeos virales en lote con Remotion.",
+      bullets: [
+        "Locución de voz natural con ElevenLabs y sincronización",
+        "Subtitulado automatizado dinámico por palabras",
+        "Renderizado en lote en formato vertical 9:16 (1080x1920)"
+      ],
+      stack: ["Remotion", "React", "ElevenLabs", "Batch Render"],
+      video: "—",
+      html: "Fabrica-de-Contenido-De-Idea-a-Video.html",
+      md: "Fabrica-de-Contenido-De-Idea-a-Video.md"
+    },
+    {
+      id: "GUIA-05",
+      code: "GUÍA 05",
+      title: "Documentación Maestra de Remotion",
+      category: "master",
+      categoryLabel: "📘 Guía",
+      badgeClass: "badge-master",
+      desc: "Manual de referencia para programar animaciones, composiciones y renderizar vídeo programático con React.",
+      bullets: [
+        "Uso de hooks clave: useCurrentFrame, interpolate, spring",
+        "Validación de props dinámicas de composición con Zod",
+        "Despliegue de renderizado serverless en AWS Lambda y Docker"
+      ],
+      stack: ["Remotion", "React", "Zod", "Web Audio API", "Docker"],
+      video: "—",
+      html: "Remotion-Docs-Guia-Completa.html",
+      md: "Remotion-Docs-Guia-Completa.md"
+    },
+    {
+      id: "GUIA-06",
+      code: "GUÍA 06",
+      title: "Arquitecto de Landing Pages",
+      category: "master",
+      categoryLabel: "📘 Guía",
+      badgeClass: "badge-master",
+      desc: "Prompt estructural para programar páginas de aterrizaje de alta conversión con copywriting persuasivo y componentes UX.",
+      bullets: [
+        "Marco persuasivo PAS (Problema, Agitación, Solución)",
+        "Jerarquía visual, prueba social y elementos de urgencia ética",
+        "Componentes esenciales: FAQ, Pricing, Hero y Comparativas"
+      ],
+      stack: ["Copywriting PAS", "HTML5", "CSS3", "UX Design"],
+      video: "—",
+      html: "Arquitecto-de-Landing-Pages-Prompt-Maestro.html",
+      md: "Arquitecto-de-Landing-Pages-Prompt-Maestro.md"
+    },
+    {
+      id: "GUIA-07",
+      code: "GUÍA 07",
+      title: "YFinance: Datos Financieros con Python",
+      category: "master",
+      categoryLabel: "📘 Guía",
+      badgeClass: "badge-master",
+      desc: "Manual para descargar históricos, balances, opciones e indicadores técnicos con la biblioteca yfinance en Python.",
+      bullets: [
+        "Descarga de cotizaciones, ratios bursátiles y estados contables",
+        "Análisis técnico con pandas y visualización de gráficos",
+        "Integración en dashboards web y bots de alertas"
+      ],
+      stack: ["Python", "yfinance", "pandas", "Matplotlib", "Finanzas"],
+      video: "—",
+      html: "YFinance-Guia-Maestra-Datos-Financieros.html",
+      md: "YFinance-Guia-Maestra-Datos-Financieros.md"
+    },
+    {
+      id: "PROMPT-01",
+      code: "PROMPT 01",
+      title: "Galería & Showcase Remotion",
+      category: "prompts",
+      categoryLabel: "⚡ Prompts",
+      badgeClass: "badge-prompts",
+      desc: "Colección de prompts listos para usar que generan composiciones de vídeo, barras y tipografías cinéticas en React.",
+      bullets: [
+        "Efectos visuales: Glow, Kinetic Typography y Countdowns",
+        "Barras de progreso animadas y gráficos temporales",
+        "Plantillas optimizadas para anuncios y reels dinámicos"
+      ],
+      stack: ["Remotion", "Prompts", "Kinetic Typography", "Showcase"],
+      video: "—",
+      html: "Remotion-Prompts-Showcase-Galeria.html",
+      md: "Remotion-Prompts-Showcase-Galeria.md"
+    },
+    {
+      id: "PROMPT-02",
+      code: "PROMPT 02",
+      title: "Claude Code: 156+ App Templates",
+      category: "prompts",
+      categoryLabel: "⚡ Prompts",
+      badgeClass: "badge-prompts",
+      desc: "Buscador y directorio de 156 plantillas de aplicaciones listas para inicializar con un comando en Claude Code.",
+      bullets: [
+        "Catálogo: Web Apps, SaaS, Dashboards, Landing Pages y Mobile",
+        "Prompts de scaffolding listos para copiar con un clic",
+        "Configuración predeterminada para Vite, Supabase y Docker"
+      ],
+      stack: ["Claude Code", "156 Templates", "Vite", "Next.js"],
+      video: "—",
+      html: "Claude-Code-Skills-App-Templates.html",
+      md: "Claude-Code-Skills-App-Templates.md"
+    },
+    {
+      id: "PROMPT-03",
+      code: "PROMPT 03",
+      title: "Skills Oficiales de Anthropic (19 Skills)",
+      category: "prompts",
+      categoryLabel: "⚡ Prompts",
+      badgeClass: "badge-prompts",
+      desc: "Guía completa de las 19 habilidades oficiales de Anthropic para Claude con especificación de herramientas MCP.",
+      bullets: [
+        "Definición de parámetros, esquemas JSON y ejemplos de llamada",
+        "Integración directa en Antigravity y Claude Code",
+        "Herramientas para análisis de datos, visualización y testing"
+      ],
+      stack: ["Claude MCP", "Anthropic", "JSON Tool Calling", "MCP"],
+      video: "—",
+      html: "Anthropic-Official-Skills-Catalogo.html",
+      md: "Anthropic-Official-Skills-Catalogo.md"
+    },
+    {
+      id: "PROMPT-04",
+      code: "PROMPT 04",
+      title: "Agentic Awesome Skills (2,474+ Skills)",
+      category: "prompts",
+      categoryLabel: "⚡ Prompts",
+      badgeClass: "badge-prompts",
+      desc: "El repositorio más completo con más de 2,474 habilidades y conectores universales para agentes IA bajo el protocolo MCP.",
+      bullets: [
+        "Conectores con APIs externas, bases de datos y herramientas web",
+        "Compatibilidad con Claude, OpenAI y Google Gemini",
+        "Auto-descubrimiento dinámico de herramientas contextuales"
+      ],
+      stack: ["MCP Protocol", "2474 Skills", "Universal Connectors"],
+      video: "—",
+      html: "Agentic-Awesome-Skills-Guia-Completa.html",
+      md: "Agentic-Awesome-Skills-Guia-Completa.md"
+    },
+    {
+      id: "ARQ-01",
+      code: "ARQ 01",
+      title: "Ecosistema IA: El Cerebro Digital",
+      category: "architecture",
+      categoryLabel: "🏛️ Arquitectura",
+      badgeClass: "badge-arch",
+      desc: "Blueprint del sistema de memoria centralizada que interconecta todos tus proyectos, agentes y bases de datos.",
+      bullets: [
+        "Capas desacopladas: Ingesta, Procesamiento y Entrega",
+        "Vector Stores en Supabase y Búsqueda Semántica Híbrida RAG",
+        "Sincronización bidireccional entre Obsidian, Supabase y Claude"
+      ],
+      stack: ["Obsidian", "RAG", "Claude", "Supabase", "Cerebro Digital"],
+      video: "—",
+      html: "Arquitectura-Ecosistema-IA-El-Cerebro-Digital.html",
+      md: "Arquitectura-Ecosistema-IA-El-Cerebro-Digital.md"
+    },
+    {
+      id: "ARQ-02",
+      code: "ARQ 02",
+      title: "Orquestación con Antigravity & Stitch",
+      category: "architecture",
+      categoryLabel: "🏛️ Arquitectura",
+      badgeClass: "badge-arch",
+      desc: "Flujo de trabajo para prototipar interfaces visualmente con Google Stitch e integrarlas en Antigravity IDE.",
+      bullets: [
+        "Generación visual con Gemini 2.5 Flash y Project Nemo",
+        "Importación directa a componentes React y Tailwind CSS",
+        "Sincronización en caliente entre diseño y código fuente"
+      ],
+      stack: ["Google Stitch", "Antigravity", "Gemini 2.5", "React UI"],
+      video: "—",
+      html: "Guia-Maestra-Orquestacion-Web-Antigravity-Stitch.html",
+      md: "Guia-Maestra-Orquestacion-Web-Antigravity-Stitch.md"
+    },
+    {
+      id: "ARQ-03",
+      code: "ARQ 03",
+      title: "Pencil: Frontend en Canvas con IA",
+      category: "architecture",
+      categoryLabel: "🏛️ Arquitectura",
+      badgeClass: "badge-arch",
+      desc: "Prototipado visual en un lienzo infinito que se convierte automáticamente en código frontend React y Tailwind.",
+      bullets: [
+        "Manipulación de archivos nativos .pen en canvas infinito",
+        "Exportación a código React y Tailwind CSS estructurado",
+        "Integración con protocolo MCP en Antigravity para edición visual"
+      ],
+      stack: ["Pencil dev", ".pen Canvas", "React", "MCP Tool"],
+      video: "—",
+      html: "Pencil-Frontend-Automatico-IA-Guia-Completa.html",
+      md: "Pencil-Frontend-Automatico-IA-Guia-Completa.md"
     }
-  }
+  ];
 
-  // Search & Filters
-  const searchInput = document.getElementById('cardSearchInput');
-  const catButtons = document.querySelectorAll('.cat-btn');
-  const cards = document.querySelectorAll('.project-card');
-  const noResultsMsg = document.getElementById('noResultsMsg');
-  let currentFilter = 'all';
+  let currentCategory = 'all';
+  let searchQuery = '';
 
-  function filterCards() {
-    const q = (searchInput.value || '').toLowerCase().trim();
-    let count = 0;
+  const tableBody = document.getElementById('tableBody');
+  const noDataState = document.getElementById('noDataState');
+  const searchInput = document.getElementById('globalSearchInput');
+  const visibleCounter = document.getElementById('visibleCounter');
+  const filterPills = document.querySelectorAll('.filter-pill');
+  const compItems = document.querySelectorAll('.comp-item');
 
-    cards.forEach(card => {
-      const category = card.getAttribute('data-category');
-      const searchData = (card.getAttribute('data-search') || '').toLowerCase();
-      const cardText = card.innerText.toLowerCase();
+  // Render Table
+  function renderTable() {
+    const q = searchQuery.toLowerCase().trim();
+    let visibleCount = 0;
+    tableBody.innerHTML = '';
 
-      const matchCat = (currentFilter === 'all' || category === currentFilter);
-      const matchSearch = !q || searchData.includes(q) || cardText.includes(q);
+    RESOURCES.forEach((item) => {
+      const matchCat = (currentCategory === 'all' || item.category === currentCategory);
+      
+      const searchContent = `${item.title} ${item.code} ${item.desc} ${item.stack.join(' ')} ${item.video}`.toLowerCase();
+      const matchSearch = !q || searchContent.includes(q);
 
       if (matchCat && matchSearch) {
-        card.style.display = 'flex';
-        count++;
-      } else {
-        card.style.display = 'none';
+        visibleCount++;
+        const tr = document.createElement('tr');
+        tr.onclick = () => openModal(item.id);
+
+        tr.innerHTML = `
+          <td class="font-mono type-xs" style="color: var(--text-muted);">${item.code}</td>
+          <td>
+            <div class="resource-title">
+              <span>${item.title}</span>
+            </div>
+          </td>
+          <td>
+            <span class="category-badge ${item.badgeClass}">${item.categoryLabel}</span>
+          </td>
+          <td>
+            <div class="stack-tags">
+              ${item.stack.map(s => `<span class="stack-tag">${s}</span>`).join('')}
+            </div>
+          </td>
+          <td>
+            ${item.video !== '—' 
+              ? `<span class="type-sm" style="color: #059669; font-weight: 600;" title="${item.video}">🎥 Vídeo</span>` 
+              : `<span class="type-sm" style="color: var(--text-muted);">—</span>`
+            }
+          </td>
+          <td>
+            <div class="action-group" onclick="event.stopPropagation()">
+              <a href="${item.html}" class="btn-action btn-primary" title="Abrir Guía Web">Web</a>
+              <a href="${item.md}" class="btn-action btn-secondary" title="Ver Markdown">MD</a>
+            </div>
+          </td>
+        `;
+
+        tableBody.appendChild(tr);
       }
     });
 
-    if (noResultsMsg) {
-      noResultsMsg.classList.toggle('hidden', count > 0);
-    }
+    // Update Counter & Empty State
+    visibleCounter.innerText = `Mostrando ${visibleCount} de ${RESOURCES.length}`;
+    noDataState.style.display = visibleCount === 0 ? 'block' : 'none';
   }
 
+  // Filter Category Handler
+  function setCategoryFilter(category) {
+    currentCategory = category;
+
+    // Update Pill Buttons
+    filterPills.forEach(pill => {
+      const cat = pill.getAttribute('data-cat');
+      pill.classList.toggle('active', cat === category);
+    });
+
+    // Update Composition Items
+    compItems.forEach(item => {
+      const cat = item.getAttribute('data-category');
+      item.classList.toggle('active', cat === category);
+    });
+
+    renderTable();
+  }
+
+  // Search Handler
   if (searchInput) {
-    searchInput.addEventListener('input', filterCards);
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderTable();
+    });
+
+    // Keyboard shortcut '/'
     window.addEventListener('keydown', (e) => {
       if (e.key === '/' && document.activeElement !== searchInput) {
         e.preventDefault();
@@ -1161,18 +1512,65 @@
     });
   }
 
-  catButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      catButtons.forEach(b => {
-        b.classList.remove('active', 'bg-blue-50', 'border-blue-200', 'text-blue-700', 'font-semibold');
-        b.classList.add('bg-slate-100', 'border-slate-200', 'text-slate-600', 'font-medium');
-      });
-      btn.classList.add('active', 'bg-blue-50', 'border-blue-200', 'text-blue-700', 'font-semibold');
-      btn.classList.remove('bg-slate-100', 'border-slate-200', 'text-slate-600', 'font-medium');
-      currentFilter = btn.getAttribute('data-filter');
-      filterCards();
-    });
+  // Modal (Progressive Disclosure) Handlers
+  const modal = document.getElementById('detailModal');
+  const modalCode = document.getElementById('modalCode');
+  const modalBadge = document.getElementById('modalCategoryBadge');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalBullets = document.getElementById('modalBullets');
+  const modalVideoSection = document.getElementById('modalVideoSection');
+  const modalVideo = document.getElementById('modalVideo');
+  const modalStack = document.getElementById('modalStack');
+  const modalHtmlLink = document.getElementById('modalHtmlLink');
+  const modalMdLink = document.getElementById('modalMdLink');
+
+  function openModal(id) {
+    const item = RESOURCES.find(r => r.id === id);
+    if (!item) return;
+
+    modalCode.innerText = item.code;
+    modalBadge.className = `category-badge ${item.badgeClass}`;
+    modalBadge.innerText = item.categoryLabel;
+    modalTitle.innerText = item.title;
+    modalDesc.innerText = item.desc;
+    
+    modalBullets.innerHTML = item.bullets.map(b => `<li style="margin-bottom: 0.4rem;">${b}</li>`).join('');
+    
+    if (item.video && item.video !== '—') {
+      modalVideoSection.style.display = 'flex';
+      modalVideo.innerText = `📁 Descargas: ${item.video}`;
+    } else {
+      modalVideoSection.style.display = 'none';
+    }
+
+    modalStack.innerHTML = item.stack.map(s => `<span class="stack-tag">${s}</span>`).join('');
+    
+    modalHtmlLink.href = item.html;
+    modalMdLink.href = item.md;
+
+    modal.classList.add('open');
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+  }
+
+  // Close modal on escape key or backdrop click
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
   });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Initial Render
+  renderTable();
 </script>
 
 </body>
