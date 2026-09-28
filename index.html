@@ -485,6 +485,15 @@
       background: #1E293B;
     }
 
+    .btn-blue {
+      background: var(--color-master);
+      color: #FFFFFF;
+      border: 1px solid var(--color-master);
+    }
+    .btn-blue:hover {
+      background: #1D4ED8;
+    }
+
     .btn-secondary {
       background: var(--bg-surface);
       color: var(--text-secondary);
@@ -680,7 +689,7 @@
       </div>
     </div>
 
-    <!-- Universal Real-time Search -->
+    <!-- Universal Real-time Search & Navigation to Tonigravity -->
     <div class="search-control">
       <div class="search-input-wrapper">
         <input 
@@ -692,6 +701,9 @@
         />
         <span class="search-shortcut" title="Presiona / para buscar">/</span>
       </div>
+      <a href="https://tonigravity.vercel.app" class="btn-action btn-blue" style="text-decoration: none;" title="Volver al Hub de Gobernanza Tonigravity Studio">
+        <span>🏛️</span> Tonigravity Studio
+      </a>
     </div>
   </header>
 
@@ -763,6 +775,9 @@
           <span class="panel-title">Ecosistema & Herramientas</span>
         </div>
         <div class="connector-grid">
+          <a href="https://tonigravity.vercel.app" class="connector-btn" style="border-color: #BFDBFE; background: #EFF6FF; color: #1E40AF; grid-column: span 2;" title="Volver al Hub de Gobernanza Tonigravity Studio">
+            <span>🏛️</span> Volver a Tonigravity Studio
+          </a>
           <a href="README.html" class="connector-btn" title="Tabla Maestra Completa">
             <span>📋</span> Tabla Maestra
           </a>
