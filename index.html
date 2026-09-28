@@ -144,10 +144,14 @@
       border-color: var(--color-master);
       background: #EFF6FF;
       transform: translateY(-1px);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+    }
+    .kpi-chip:hover .kpi-value {
+      color: var(--color-master);
     }
     .kpi-chip:active {
       transform: translateY(0);
+      box-shadow: none;
     }
 
     .kpi-value {
@@ -155,6 +159,7 @@
       font-weight: 700;
       color: var(--text-primary);
       line-height: 1.1;
+      transition: color 0.15s ease;
     }
 
     .kpi-label {
