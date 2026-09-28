@@ -133,6 +133,21 @@
       background: var(--bg-subtle);
       border: 1px solid var(--border-light);
       border-radius: 6px;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .kpi-chip:hover {
+      border-color: var(--color-master);
+      background: #EFF6FF;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .kpi-chip:active {
+      transform: translateY(0);
     }
 
     .kpi-value {
@@ -668,24 +683,24 @@
         <p class="brand-tagline">Directorio Maestro de Arquitectura IA & Vibe Coding</p>
       </div>
 
-      <!-- Non-Redundant Executive KPIs -->
+      <!-- Non-Redundant Executive KPIs (Interactive Action Buttons) -->
       <div class="kpi-group" role="region" aria-label="Métricas Principales">
-        <div class="kpi-chip">
+        <button type="button" onclick="setCategoryFilter('all')" class="kpi-chip" title="Ver todos los 28 recursos del catálogo">
           <span class="kpi-value" id="kpiTotal">28</span>
           <span class="kpi-label">Recursos Activos</span>
-        </div>
-        <div class="kpi-chip">
+        </button>
+        <button type="button" onclick="setCategoryFilter('clases')" class="kpi-chip" title="Filtrar por las 19 Clases y Vídeos Skool">
           <span class="kpi-value" id="kpiVideos">19</span>
           <span class="kpi-label">Vídeos Skool</span>
-        </div>
-        <div class="kpi-chip">
+        </button>
+        <button type="button" onclick="setCategoryFilter('skills')" class="kpi-chip" title="Filtrar por Skills & Prompts de IA">
           <span class="kpi-value">2.600+</span>
           <span class="kpi-label">Prompts & Skills</span>
-        </div>
-        <div class="kpi-chip" style="border-color: #A7F3D0; background: #ECFDF5;">
+        </button>
+        <button type="button" onclick="showOfflineStatusToast()" class="kpi-chip" style="border-color: #A7F3D0; background: #ECFDF5;" title="Estado de disponibilidad sin conexión">
           <span class="kpi-value" style="color: #059669;">✓ 100%</span>
           <span class="kpi-label" style="color: #047857;">Offline Ready</span>
-        </div>
+        </button>
       </div>
     </div>
 
@@ -1583,6 +1598,10 @@
       closeModal();
     }
   });
+
+  function showOfflineStatusToast() {
+    alert('⚡ 100% Offline Ready: Todos los 28 recursos, guías y prompts están disponibles localmente sin conexión.');
+  }
 
   // Initial Render
   renderTable();
